@@ -22,6 +22,10 @@ public class AppController {
         return null;
     }
 
+    protected List<Article> filterList(String query,List<Article> articles){
+        return null;
+    }
+
     public List<Article> getAllNewsBitcoin(){
         return null;
     }
