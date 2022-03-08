@@ -6,6 +6,7 @@ public class Article {
 
     public Article(String author, String title){
 
+
     }
 
     public String getAuthor() {
