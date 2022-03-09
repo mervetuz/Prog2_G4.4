@@ -7,6 +7,7 @@ public class Menu {
 
 
     public void start(){
+        printMenu();
 
     }
 
@@ -35,6 +36,7 @@ public class Menu {
     }
 
     private static void printMenu(){
+
 
     }
 

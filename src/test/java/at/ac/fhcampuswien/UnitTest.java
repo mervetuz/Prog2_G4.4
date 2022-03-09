@@ -33,18 +33,9 @@ public class UnitTest {
     public void test_getArticleCount_Scenario_1(){
 
 
-        AppController articles = new AppController();
-        assertThrows(IllegalArgumentException.class, () -> articles.getArticleCount(0) );
 
     }
 
-    @Test
-    @DisplayName("There exist articles")
-    public void test_getArticleCount_Scenario_2(){
-
-
-
-    }
 
     @Test
     @DisplayName("Headlines are in Capslock ")
