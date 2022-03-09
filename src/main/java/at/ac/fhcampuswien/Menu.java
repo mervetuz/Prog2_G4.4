@@ -37,6 +37,8 @@ public class Menu {
 
     private static void printMenu(){
 
+        //Layout with sout
+
 
     }
 
