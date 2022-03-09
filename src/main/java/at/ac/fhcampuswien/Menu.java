@@ -20,7 +20,7 @@ public class Menu {
             case "b" -> getAllNewsBitcoin(controller);
             case "y" -> getArticleCount(controller);
             case "q" -> printExitMessage();
-            default -> printInvalidInputMessage();
+            default -> {printInvalidInputMessage(); start();}
         }
 
     }
