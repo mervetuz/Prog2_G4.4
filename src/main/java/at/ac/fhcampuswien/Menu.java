@@ -37,7 +37,15 @@ public class Menu {
 
     private static void printMenu(){
 
-        //Layout with sout
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("        ***       Welcome to our NewsApp      ***             ");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("Enter what you wanna do by pressing the appropriate letter key:");
+        System.out.println("a --> Get the Top Headlines from Austria");
+        System.out.println("b --> Get all news concerning Bitcoin");
+        System.out.println("y --> Count of all Articles");
+        System.out.println("q --> Quit the Program");
+
 
 
     }
