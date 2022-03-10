@@ -28,10 +28,11 @@ public class Menu {
     }
 
     private static void printExitMessage(){
-
+        System.out.println(EXIT_MESSAGE);
     }
 
     private static void printInvalidInputMessage(){
+        System.out.println(INVALID_INPUT_MESSAGE);
 
     }
 
