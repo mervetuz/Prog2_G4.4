@@ -1,17 +1,28 @@
 package at.ac.fhcampuswien;
 
+import java.util.Scanner;
+
 public class Menu {
     private AppController controller = new AppController();
-    private static final String INVALID_INPUT_MESSAGE = "";
-    private static final String EXIT_MESSAGE = "";
+    private static final String INVALID_INPUT_MESSAGE = "Not a valid Input!";
+    private static final String EXIT_MESSAGE = "Bye, see you soon!";
 
 
     public void start(){
         printMenu();
+        handleInput(new Scanner(System.in).next());
 
     }
 
     private void handleInput(String input){
+        switch (input) {
+            case "a" -> getTopHeadlinesAustria(controller);
+            case "b" -> getAllNewsBitcoin(controller);
+            case "y" -> getArticleCount(controller);
+            case "q" -> printExitMessage();
+            default -> {printInvalidInputMessage(); start();
+            }
+        }
 
     }
 
