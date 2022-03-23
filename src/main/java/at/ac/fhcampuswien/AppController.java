@@ -1,11 +1,14 @@
 package at.ac.fhcampuswien;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AppController {
 
 
-    private List<Article> articles;
+    private List<Article> articles = new ArrayList();
+
+
 
 
     public AppController(){
@@ -31,6 +34,6 @@ public class AppController {
     }
 
     private List<Article> generateMockList(){
-        return null;
+      return null;
     }
 }

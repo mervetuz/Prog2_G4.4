@@ -5,16 +5,17 @@ public class Article {
     private String title = "";
 
     public Article(String author, String title){
-
+        this.author = author;
+        this.title = title;
 
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     @Override
