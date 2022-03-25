@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,7 +59,19 @@ public class UnitTest {
 
     @Test
     @DisplayName("Has bitcoin in the title") //Getting all news with "bitcoin" in the title
-    public void test_getAllNewsBitcoin_Scenario_1(List<Article> articles){
+    public void test_getAllNewsBitcoin_Scenario_1(){
+        List<Article> articles = new ArrayList<>();
+
+    try {
+        assertTrue(articles.getAllNewsBitcoin().contains("bitcoin"));
+
+            } catch (NoSuchMethodException name){
+                fail("There should be a public method called getAllNewsBitcoin.");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                fail("Some other problems have occured.");
+        }
         //return articles.stream().filter(articles.contains("bitcoin")).collect(Collectors.toList());
         /*String test = "Bitcoin";
         String result;
