@@ -27,7 +27,7 @@ public class Menu {
     }
 
     private void getArticleCount(AppController ctrl){
-
+        System.out.println(ctrl.getArticleCount());
     }
 
     private void getTopHeadlinesAustria(AppController ctrl){

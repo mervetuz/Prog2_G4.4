@@ -3,10 +3,12 @@ package at.ac.fhcampuswien;
 public class Article {
     private String author = "";
     private String title = "";
+    private static int count = 0;
 
     public Article(String author, String title){
         this.author = author;
         this.title = title;
+        count++;
 
     }
 
@@ -16,6 +18,10 @@ public class Article {
 
     public String getTitle() {
         return this.title;
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     @Override

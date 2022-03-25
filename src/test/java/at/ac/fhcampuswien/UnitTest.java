@@ -24,12 +24,17 @@ public class UnitTest {
     }
 
 
-
+    /**
+     * Tests if the given List of Articles is assigned to the Classvariable articles in AppController.
+     */
     @Test
     public void test_setArticles(){
 
     }
 
+    /**
+     * Test if list count equals number of articles. If null then it should be 0.
+     */
     @Test
     @DisplayName("There are no articles")
     public void test_getArticleCount_Scenario_1(){
@@ -37,7 +42,6 @@ public class UnitTest {
 
 
     }
-
 
     @Test
     @DisplayName("Headlines are in Capslock ")
