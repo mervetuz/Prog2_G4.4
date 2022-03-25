@@ -59,6 +59,7 @@ public class UnitTest {
     @Test
     @DisplayName("Has bitcoin in the title") //Getting all news with "bitcoin" in the title
     public void test_getAllNewsBitcoin_Scenario_1(List<Article> articles){
+
         //return articles.stream().filter(articles.contains("bitcoin")).collect(Collectors.toList());
         /*String test = "Bitcoin";
         String result;
