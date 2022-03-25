@@ -66,7 +66,7 @@ public class UnitTest {
         assertTrue(articles.getAllNewsBitcoin().contains("bitcoin"));
 
             } catch (NoSuchMethodException name){
-                fail("There should be a public method called getAllNewsBitcoin.")
+                fail("There should be a public method called getAllNewsBitcoin.");
 
             } catch (Exception e) {
                 e.printStackTrace();
