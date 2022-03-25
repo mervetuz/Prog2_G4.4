@@ -1,8 +1,5 @@
 package at.ac.fhcampuswien;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -25,12 +22,23 @@ public class UnitTest {
     }
 
 
+
     /**
      * Tests if the given List of Articles is assigned to the Classvariable articles in AppController.
      */
     @Test
     public void test_setArticles(){
-
+        System.out.println("Testing setArticles Method");
+        List<Article> testList = new ArrayList<Article>();
+        Article first = new Article("Peter","Das ist ein Article");
+        Article second = new Article("Hans","Das ist ein Article");
+        Article third = new Article("Gustav","Das ist ein Article");
+        testList.add(first);
+        testList.add(second);
+        testList.add(third);
+        AppController ctrl = new AppController();
+        ctrl.setArticles(testList);
+        assertEquals(testList,ctrl.getArticles());
     }
 
     /**
@@ -60,15 +68,18 @@ public class UnitTest {
     @Test
     @DisplayName("Has bitcoin in the title") //Getting all news with "bitcoin" in the title
     public void test_getAllNewsBitcoin_Scenario_1(){
-        List<Article> articles = new ArrayList<>();
+        System.out.println("Testing Bitcoin News");
+        //List<Article> articles = new ArrayList<Article>();
+        AppController ctrl = new AppController();
 
     try {
-        assertTrue(articles.getAllNewsBitcoin().contains("bitcoin"));
+        assertTrue(ctrl.getAllNewsBitcoin().contains("bitcoin"));
 
-            } catch (NoSuchMethodException name){
-                fail("There should be a public method called getAllNewsBitcoin.");
-
-            } catch (Exception e) {
+            } //catch (NoSuchMethodException name){
+              //  fail("There should be a public method called getAllNewsBitcoin.");
+//
+            //}
+            catch (Exception e) {
                 e.printStackTrace();
                 fail("Some other problems have occured.");
         }
@@ -88,6 +99,34 @@ public class UnitTest {
     @DisplayName("Query in title, not important if case sensitive or not")
     public void test_filterList_Scenario_1(){
 
+        String searchWord = "Ich";
+        List<Article> testList = new ArrayList<Article>();
+        List<Article> acceptedList = new ArrayList<Article>();
+        Article first = new Article("Peter","Das ist ein Article");
+        Article second = new Article("Hans","Ich bin ein Article");
+        Article third = new Article("Gustav","Das ist ein Article");
+        testList.add(first);
+        testList.add(second);
+        testList.add(third);
+        acceptedList.add(second);
+        assertEquals(acceptedList,AppController.filterList(searchWord,testList));
+
+    }
+
+    @Test
+    @DisplayName("Testing if case sensitive")
+    public void test_filterList_scenario_1(){
+        String searchWord = "ich";
+        List<Article> testList = new ArrayList<Article>();
+        List<Article> acceptedList = new ArrayList<Article>();
+        Article first = new Article("Peter","Das ist ein Article");
+        Article second = new Article("Hans","Ich bin ein Article");
+        Article third = new Article("Gustav","Das ist ein Article");
+        testList.add(first);
+        testList.add(second);
+        testList.add(third);
+        acceptedList.add(second);
+        assertEquals(acceptedList,AppController.filterList(searchWord,testList));
     }
 
 }

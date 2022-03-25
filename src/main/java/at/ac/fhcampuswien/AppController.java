@@ -12,10 +12,14 @@ public class AppController {
 
 
     public AppController(){
+        this.articles=generateMockList();
     }
     //Setter for the Articles list
     public void setArticles(List<Article> articles) {
         this.articles = articles;
+    }
+    public List<Article> getArticles(){
+        return articles;
     }
     //Returns the number of items in the list. If the list is null, 0 should be returned
     public int getArticleCount(){
@@ -31,7 +35,7 @@ public class AppController {
             return articles;
         }
 
-    protected List<Article> filterList(String query,List<Article> articles){
+    protected static List<Article> filterList(String query,List<Article> articles){
         return null;
     }
 
@@ -39,7 +43,7 @@ public class AppController {
         return filterList("bitcoin",articles);
     }
 
-    private List<Article> generateMockList(){
+    private static List<Article> generateMockList(){
 
         List<Article> liste = new ArrayList<Article>();
         for (int i = 0; i < 20; i++) {

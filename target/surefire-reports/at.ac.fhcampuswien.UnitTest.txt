@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: at.ac.fhcampuswien.UnitTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.051 s <<< FAILURE! - in at.ac.fhcampuswien.UnitTest
+test_getAllNewsBitcoin_Scenario_1  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Some other problems have occured.
+	at at.ac.fhcampuswien.UnitTest.test_getAllNewsBitcoin_Scenario_1(UnitTest.java:86)
+
