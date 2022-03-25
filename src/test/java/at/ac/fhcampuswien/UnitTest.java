@@ -115,7 +115,7 @@ public class UnitTest {
 
     @Test
     @DisplayName("Testing if case sensitive")
-    public void test_filterList_scenario_1(){
+    public void test_filterList_scenario_2(){
         String searchWord = "ich";
         List<Article> testList = new ArrayList<Article>();
         List<Article> acceptedList = new ArrayList<Article>();

@@ -2,6 +2,7 @@ package at.ac.fhcampuswien;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AppController {
 
@@ -36,7 +37,14 @@ public class AppController {
         }
 
     protected static List<Article> filterList(String query,List<Article> articles){
-        return null;
+        List<Article> newList = new ArrayList<Article>();
+        for (int i = 0; i < articles.size(); i++) {
+            if (articles.get(i).getTitle().toLowerCase().contains(query.toLowerCase())){
+                newList.add(articles.get(i));
+            }
+        }
+
+        return newList;
     }
 
     public List<Article> getAllNewsBitcoin(){
