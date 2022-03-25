@@ -4,7 +4,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,12 +24,17 @@ public class UnitTest {
     }
 
 
-
+    /**
+     * Tests if the given List of Articles is assigned to the Classvariable articles in AppController.
+     */
     @Test
     public void test_setArticles(){
 
     }
 
+    /**
+     * Test if list count equals number of articles. If null then it should be 0.
+     */
     @Test
     @DisplayName("There are no articles")
     public void test_getArticleCount_Scenario_1(){
@@ -35,7 +42,6 @@ public class UnitTest {
 
 
     }
-
 
     @Test
     @DisplayName("Headlines are in Capslock ")
@@ -52,7 +58,16 @@ public class UnitTest {
 
     @Test
     @DisplayName("Has bitcoin in the title") //Getting all news with "bitcoin" in the title
-    public void test_getAllNewsBitcoin_Scenario_1(){
+    public void test_getAllNewsBitcoin_Scenario_1(List<Article> articles){
+        //return articles.stream().filter(articles.contains("bitcoin")).collect(Collectors.toList());
+        /*String test = "Bitcoin";
+        String result;
+
+        try {
+            Method method = AppController.class.getMethod("getAllNewsBitcoin", String.class);
+            result = (String)method.invoke(null, "")
+        }
+        */
 
     }
 

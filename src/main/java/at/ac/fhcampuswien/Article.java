@@ -3,18 +3,25 @@ package at.ac.fhcampuswien;
 public class Article {
     private String author = "";
     private String title = "";
+    private static int count = 0;
 
     public Article(String author, String title){
-
+        this.author = author;
+        this.title = title;
+        count++;
 
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     @Override
