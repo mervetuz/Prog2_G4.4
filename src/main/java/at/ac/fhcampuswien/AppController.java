@@ -9,6 +9,7 @@ public class AppController {
     private List<Article> articles;
 
     public AppController(){
+        articles = new ArrayList<Article>();
         this.articles=generateMockList();
     }
 
@@ -17,13 +18,19 @@ public class AppController {
     public void setArticles(List<Article> articles) {
         this.articles = articles;
     }
+
     public List<Article> getArticles(){
         return articles;
     }
     //Returns the number of items in the list. If the list is null, 0 should be returned
-    public int getArticleCount(){
-        return 0;
 
+
+    public int getArticleCount(){
+        if (articles.size() != 0) {
+            return articles.size();
+        } else {
+            return 0;
+        }
     }
 
     //Should only return the list of Articles. If the list is null, an empty list should be returned

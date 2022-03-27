@@ -45,11 +45,24 @@ public class UnitTest {
      * Test if list count equals number of articles. If null then it should be 0.
      */
     @Test
-    @DisplayName("There are no articles")
+    @DisplayName("Number of articles")
     public void test_getArticleCount_Scenario_1(){
+        AppController ctrl = new AppController();
+        List<Article> articles = new ArrayList<>();
 
+        Article first = new Article("Marco Polo", "Welcome to Venice!");
+        articles.add(first);
+        Article second = new Article("Christopher Columbus", "Hello America!");
+        articles.add(second);
+        Article third = new Article("Charles Darwin", "Ever heard of Theory of evolution?");
+        articles.add(third);
 
+        ctrl.setArticles(articles);
 
+        int actual = ctrl.getArticleCount();
+        int expected = 3;
+
+        assertEquals(expected, actual);
     }
 
     @Test
