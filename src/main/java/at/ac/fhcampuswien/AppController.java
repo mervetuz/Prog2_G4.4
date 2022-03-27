@@ -6,16 +6,11 @@ import java.util.Locale;
 
 public class AppController {
 
-
     private List<Article> articles;
-
-
-
 
     public AppController(){
         this.articles=generateMockList();
     }
-
 
 
     //Setter for the Articles list

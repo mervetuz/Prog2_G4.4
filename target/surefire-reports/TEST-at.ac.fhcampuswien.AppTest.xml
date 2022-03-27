@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="at.ac.fhcampuswien.UnitTest" time="0.031" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="at.ac.fhcampuswien.AppTest" time="0.018" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="16"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,8 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="AT"/>
     <property name="sun.boot.library.path" value="/Users/aska/Library/Java/JavaVirtualMachines/corretto-16.0.2-1/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/aska/Projects/Prog2_G4.4/target/surefire/surefirebooter9198386597737913852.jar /Users/aska/Projects/Prog2_G4.4/target/surefire 2022-03-27T13-54-15_035-jvmRun1 surefire12437882156872880159tmp surefire_012065592924621194627tmp"/>
+    <property name="sun.java.command" value="/Users/aska/Projects/Prog2_G4.4/target/surefire/surefirebooter1300234722064179867.jar /Users/aska/Projects/Prog2_G4.4/target/surefire 2022-03-02T12-15-33_199-jvmRun1 surefire17189968015005395587tmp surefire_012168269848354714858tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/aska/Projects/Prog2_G4.4/target/test-classes:/Users/aska/Projects/Prog2_G4.4/target/classes:/Users/aska/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/Users/aska/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/Users/aska/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/aska/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/Users/aska/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/aska/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -25,14 +26,15 @@
     <property name="basedir" value="/Users/aska/Projects/Prog2_G4.4"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/aska/Projects/Prog2_G4.4/target/surefire/surefirebooter9198386597737913852.jar"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/Users/aska/Projects/Prog2_G4.4/target/surefire/surefirebooter1300234722064179867.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="16.0.2+7"/>
     <property name="user.name" value="aska"/>
     <property name="path.separator" value=":"/>
-    <property name="os.version" value="12.2.1"/>
+    <property name="os.version" value="12.0.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="US-ASCII"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
@@ -50,14 +52,8 @@
     <property name="java.vendor" value="Amazon.com Inc."/>
     <property name="java.vm.version" value="16.0.2+7"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="60.0"/>
   </properties>
-  <testcase name="test_filterList_scenario_2" classname="at.ac.fhcampuswien.UnitTest" time="0.011"/>
-  <testcase name="test_getTopHeadLinesAustria_Scenario_2" classname="at.ac.fhcampuswien.UnitTest" time="0.004"/>
-  <testcase name="test_getArticleCount_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
-  <testcase name="test_filterList_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0.001"/>
-  <testcase name="test_getTopHeadlinesAustria_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0.001"/>
-  <testcase name="test_setArticles" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
-  <testcase name="test_getAllNewsBitcoin_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
-  <testcase name="test_getAllNewsBitcoin_Scenario_2" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
+  <testcase name="myfirstTest" classname="at.ac.fhcampuswien.AppTest" time="0.013"/>
 </testsuite>

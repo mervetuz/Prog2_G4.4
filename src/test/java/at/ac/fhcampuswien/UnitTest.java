@@ -61,6 +61,19 @@ public class UnitTest {
     @Test
     @DisplayName("Empty List")
     public void test_getTopHeadLinesAustria_Scenario_2(){
+        AppController ctrl = new AppController();
+        List<Article> articles = new ArrayList<>();
+
+        Article first = new Article("El Salvador", "Tech this week: El Salvador rejects IMF call to drop Bitcoin use");
+        articles.add(first);
+        Article second = new Article("Ian Smith", "Bitcoin price crash: Crypto extends losses as market fails to rally");
+        articles.add(second);
+        ctrl.setArticles(articles);
+
+        List<Article> expected = articles;
+
+        assertEquals(expected, ctrl.getTopHeadlinesAustria());
+
 
 
     }
