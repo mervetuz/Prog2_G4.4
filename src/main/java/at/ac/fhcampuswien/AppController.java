@@ -15,6 +15,9 @@ public class AppController {
     public AppController(){
         this.articles=generateMockList();
     }
+
+
+
     //Setter for the Articles list
     public void setArticles(List<Article> articles) {
         this.articles = articles;

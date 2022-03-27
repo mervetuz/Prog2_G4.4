@@ -66,33 +66,42 @@ public class UnitTest {
     }
 
     @Test
-    @DisplayName("Has bitcoin in the title") //Getting all news with "bitcoin" in the title
+    @DisplayName("Has bitcoin in the title, regardless of whether case sensitive or not") //Getting all news with "bitcoin" in the title
     public void test_getAllNewsBitcoin_Scenario_1(){
-        System.out.println("Testing Bitcoin News");
-        //List<Article> articles = new ArrayList<Article>();
-        AppController ctrl = new AppController();
 
-    try {
-        assertTrue(ctrl.getAllNewsBitcoin().contains("bitcoin"));
+        String searchWord = "Bitcoin";
+        List <Article> testList = new ArrayList<Article>();
+        List<Article> acceptedList = new ArrayList<Article>();
+        Article first = new Article("Ian Smith", "Cryptos sind cool");
+        Article second = new Article("Peter Smith", "Bitcoin ist cool");
+        Article third = new Article("Franz Smith", "Cryptos sind königlich");
 
-            } //catch (NoSuchMethodException name){
-              //  fail("There should be a public method called getAllNewsBitcoin.");
-//
-            //}
-            catch (Exception e) {
-                e.printStackTrace();
-                fail("Some other problems have occured.");
-        }
-        //return articles.stream().filter(articles.contains("bitcoin")).collect(Collectors.toList());
-        /*String test = "Bitcoin";
-        String result;
+        testList.add(first);
+        testList.add(second);
+        testList.add(third);
+        acceptedList.add(second);
+        assertEquals(acceptedList, AppController.filterList(searchWord,testList));
 
-        try {
-            Method method = AppController.class.getMethod("getAllNewsBitcoin", String.class);
-            result = (String)method.invoke(null, "")
-        }
-        */
 
+    }
+
+    @Test
+    @DisplayName("Testing if case sensitive")
+    public void test_getAllNewsBitcoin_Scenario_2(){
+
+        String searchword = "bitcoin";
+        List<Article> testList = new ArrayList<Article>();
+        List<Article> acceptedList = new ArrayList<Article>();
+
+        Article first = new Article("Ian Smith", "Cryptos sind cool");
+        Article second = new Article("Peter Smith", "Bitcoin ist cool");
+        Article third = new Article("Franz Smith", "Cryptos sind königlich");
+
+        testList.add(first);
+        testList.add(second);
+        testList.add(third);
+        acceptedList.add(second);
+        assertEquals(acceptedList, AppController.filterList(searchword, testList));
     }
 
     @Test
