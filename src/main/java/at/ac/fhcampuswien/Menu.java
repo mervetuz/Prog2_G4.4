@@ -8,9 +8,15 @@ public class Menu {
     private static final String EXIT_MESSAGE = "Bye, see you soon!";
 
 
-    public void start(){
-        printMenu();
-        handleInput(new Scanner(System.in).next());
+    public void start() {
+        for (int i = 0; i < 4; i++) {
+
+            printMenu();
+            handleInput(new Scanner(System.in).next());
+
+
+        }
+
 
     }
 
@@ -19,7 +25,10 @@ public class Menu {
             case "a" -> getTopHeadlinesAustria(controller);
             case "b" -> getAllNewsBitcoin(controller);
             case "y" -> getArticleCount(controller);
-            case "q" -> printExitMessage();
+            case "q" -> {
+                printExitMessage();
+                System.exit(0);
+            }
             default -> {printInvalidInputMessage(); start();
             }
         }
