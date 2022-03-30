@@ -1,63 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="at.ac.fhcampuswien.UnitTest" time="0.031" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="at.ac.fhcampuswien.UnitTest" time="0.032" tests="8" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.specification.version" value="16"/>
-    <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/aska/Projects/Prog2_G4.4/target/test-classes:/Users/aska/Projects/Prog2_G4.4/target/classes:/Users/aska/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/Users/aska/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/Users/aska/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/aska/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/Users/aska/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/aska/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\wiege\IdeaProjects\Prog2_G4.4\target\test-classes;C:\Users\wiege\IdeaProjects\Prog2_G4.4\target\classes;C:\Users\wiege\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\wiege\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\wiege\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\wiege\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\wiege\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\wiege\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-controls\16\javafx-controls-16.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-controls\16\javafx-controls-16-win.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-graphics\16\javafx-graphics-16.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-graphics\16\javafx-graphics-16-win.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-base\16\javafx-base-16.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-base\16\javafx-base-16-win.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-media\16\javafx-media-16-win.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-fxml\16\javafx-fxml-16.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-fxml\16\javafx-fxml-16-win.jar;"/>
     <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
     <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
-    <property name="os.name" value="Mac OS X"/>
+    <property name="user.timezone" value="Europe/Vienna"/>
+    <property name="os.name" value="Windows 10"/>
     <property name="java.vm.specification.version" value="16"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="AT"/>
-    <property name="sun.boot.library.path" value="/Users/aska/Library/Java/JavaVirtualMachines/corretto-16.0.2-1/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/aska/Projects/Prog2_G4.4/target/surefire/surefirebooter9198386597737913852.jar /Users/aska/Projects/Prog2_G4.4/target/surefire 2022-03-27T13-54-15_035-jvmRun1 surefire12437882156872880159tmp surefire_012065592924621194627tmp"/>
+    <property name="sun.boot.library.path" value="C:\Users\wiege\.jdks\corretto-16.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\wiege\AppData\Local\Temp\surefire12706172561335254985\surefirebooter7038209115555095779.jar C:\Users\wiege\AppData\Local\Temp\surefire12706172561335254985 2022-03-30T13-55-45_879-jvmRun1 surefire3721946692063553744tmp surefire_02426063087253052957tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/aska/Projects/Prog2_G4.4/target/test-classes:/Users/aska/Projects/Prog2_G4.4/target/classes:/Users/aska/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/Users/aska/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/Users/aska/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/aska/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/Users/aska/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/aska/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:"/>
+    <property name="surefire.test.class.path" value="C:\Users\wiege\IdeaProjects\Prog2_G4.4\target\test-classes;C:\Users\wiege\IdeaProjects\Prog2_G4.4\target\classes;C:\Users\wiege\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\wiege\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\wiege\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\wiege\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\wiege\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\wiege\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-controls\16\javafx-controls-16.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-controls\16\javafx-controls-16-win.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-graphics\16\javafx-graphics-16.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-graphics\16\javafx-graphics-16-win.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-base\16\javafx-base-16.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-base\16\javafx-base-16-win.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-media\16\javafx-media-16-win.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-fxml\16\javafx-fxml-16.jar;C:\Users\wiege\.m2\repository\org\openjfx\javafx-fxml\16\javafx-fxml-16-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="/Users/aska"/>
-    <property name="user.language" value="en"/>
+    <property name="user.home" value="C:\Users\wiege"/>
+    <property name="user.language" value="de"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2021-07-20"/>
-    <property name="java.home" value="/Users/aska/Library/Java/JavaVirtualMachines/corretto-16.0.2-1/Contents/Home"/>
-    <property name="file.separator" value="/"/>
-    <property name="basedir" value="/Users/aska/Projects/Prog2_G4.4"/>
+    <property name="java.home" value="C:\Users\wiege\.jdks\corretto-16.0.2"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\wiege\IdeaProjects\Prog2_G4.4"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/aska/Projects/Prog2_G4.4/target/surefire/surefirebooter9198386597737913852.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\wiege\AppData\Local\Temp\surefire12706172561335254985\surefirebooter7038209115555095779.jar"/>
+    <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="16.0.2+7"/>
-    <property name="user.name" value="aska"/>
-    <property name="path.separator" value=":"/>
-    <property name="os.version" value="12.2.1"/>
+    <property name="user.name" value="wiege"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="file.encoding" value="US-ASCII"/>
+    <property name="file.encoding" value="Cp1252"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
     <property name="java.vendor.version" value="Corretto-16.0.2.7.1"/>
-    <property name="localRepository" value="/Users/aska/.m2/repository"/>
+    <property name="localRepository" value="C:\Users\wiege\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-jdk/issues/"/>
-    <property name="java.io.tmpdir" value="/var/folders/ck/jlkvwd251r5_962kq9_pgdt00000gn/T/"/>
-    <property name="idea.version" value="2021.3.1"/>
+    <property name="java.io.tmpdir" value="C:\Users\wiege\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2021.3.2"/>
     <property name="java.version" value="16.0.2"/>
-    <property name="user.dir" value="/Users/aska/Projects/Prog2_G4.4"/>
-    <property name="os.arch" value="x86_64"/>
+    <property name="user.dir" value="C:\Users\wiege\IdeaProjects\Prog2_G4.4"/>
+    <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.library.path" value="/Users/aska/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Users\wiege\.jdks\corretto-16.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Oculus\Support\oculus-runtime;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\ADB Fastboot\platform-tools_r31.0.2-windows\platform-tools;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\wiege\AppData\Local\Microsoft\WindowsApps;;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vendor" value="Amazon.com Inc."/>
     <property name="java.vm.version" value="16.0.2+7"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="60.0"/>
   </properties>
-  <testcase name="test_filterList_scenario_2" classname="at.ac.fhcampuswien.UnitTest" time="0.011"/>
-  <testcase name="test_getTopHeadLinesAustria_Scenario_2" classname="at.ac.fhcampuswien.UnitTest" time="0.004"/>
+  <testcase name="test_filterList_scenario_2" classname="at.ac.fhcampuswien.UnitTest" time="0.018">
+    <failure message="expected: &lt;[Article{author=&apos;Hans&apos;, title=&apos;Ich bin ein Article&apos;}]&gt; but was: &lt;[]&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <[Article{author='Hans', title='Ich bin ein Article'}]> but was: <[]>
+	at at.ac.fhcampuswien.UnitTest.test_filterList_scenario_2(UnitTest.java:161)
+]]></failure>
+    <system-out><![CDATA[Testing News-App
+]]></system-out>
+  </testcase>
+  <testcase name="test_getTopHeadLinesAustria_Scenario_2" classname="at.ac.fhcampuswien.UnitTest" time="0.001"/>
+  <testcase name="test_getArticleCount_Scenario_0" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
   <testcase name="test_getArticleCount_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
-  <testcase name="test_filterList_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0.001"/>
-  <testcase name="test_getTopHeadlinesAustria_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0.001"/>
+  <testcase name="test_filterList_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
+  <testcase name="test_getTopHeadlinesAustria_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
   <testcase name="test_setArticles" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
-  <testcase name="test_getAllNewsBitcoin_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
-  <testcase name="test_getAllNewsBitcoin_Scenario_2" classname="at.ac.fhcampuswien.UnitTest" time="0"/>
+  <testcase name="test_getAllNewsBitcoin_Scenario_1" classname="at.ac.fhcampuswien.UnitTest" time="0.001">
+    <failure message="expected: &lt;[Article{author=&apos;Peter Smith&apos;, title=&apos;Bitcoin ist cool&apos;}]&gt; but was: &lt;[]&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <[Article{author='Peter Smith', title='Bitcoin ist cool'}]> but was: <[]>
+	at at.ac.fhcampuswien.UnitTest.test_getAllNewsBitcoin_Scenario_1(UnitTest.java:124)
+]]></failure>
+  </testcase>
 </testsuite>

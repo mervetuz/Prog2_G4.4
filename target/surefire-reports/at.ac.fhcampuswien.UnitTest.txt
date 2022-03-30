@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: at.ac.fhcampuswien.UnitTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in at.ac.fhcampuswien.UnitTest
+Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.032 s <<< FAILURE! - in at.ac.fhcampuswien.UnitTest
+test_filterList_scenario_2  Time elapsed: 0.018 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[Article{author='Hans', title='Ich bin ein Article'}]> but was: <[]>
+	at at.ac.fhcampuswien.UnitTest.test_filterList_scenario_2(UnitTest.java:161)
+
+test_getAllNewsBitcoin_Scenario_1  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[Article{author='Peter Smith', title='Bitcoin ist cool'}]> but was: <[]>
+	at at.ac.fhcampuswien.UnitTest.test_getAllNewsBitcoin_Scenario_1(UnitTest.java:124)
+

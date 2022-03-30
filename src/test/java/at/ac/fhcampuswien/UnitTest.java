@@ -109,7 +109,6 @@ public class UnitTest {
     @DisplayName("Has bitcoin in the title, regardless of whether case sensitive or not") //Getting all news with "bitcoin" in the title
     public void test_getAllNewsBitcoin_Scenario_1(){
 
-        String searchWord = "Bitcoin";
         List <Article> testList = new ArrayList<Article>();
         List<Article> acceptedList = new ArrayList<Article>();
         AppController ctrl = new AppController();

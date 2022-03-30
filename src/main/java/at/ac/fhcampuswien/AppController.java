@@ -47,13 +47,14 @@ public class AppController {
             if (articles.get(i).getTitle().toLowerCase().contains(query.toLowerCase())){
                 newList.add(articles.get(i));
             }
+
         }
 
         return newList;
     }
 
     public List<Article> getAllNewsBitcoin(){
-        return filterList("bitcoin",articles);
+        return filterList("Bitcoin",articles);
     }
 
     private static List<Article> generateMockList(){
