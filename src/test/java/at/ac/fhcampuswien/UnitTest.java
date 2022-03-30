@@ -112,37 +112,20 @@ public class UnitTest {
         String searchWord = "Bitcoin";
         List <Article> testList = new ArrayList<Article>();
         List<Article> acceptedList = new ArrayList<Article>();
+        AppController ctrl = new AppController();
         Article first = new Article("Ian Smith", "Cryptos sind cool");
         Article second = new Article("Peter Smith", "Bitcoin ist cool");
         Article third = new Article("Franz Smith", "Cryptos sind königlich");
-
         testList.add(first);
         testList.add(second);
         testList.add(third);
+        ctrl.setArticles(testList);
         acceptedList.add(second);
-        assertEquals(acceptedList, AppController.filterList(searchWord,testList));
+        assertEquals(acceptedList, ctrl.getAllNewsBitcoin());
 
 
     }
 
-    @Test
-    @DisplayName("Testing if case sensitive")
-    public void test_getAllNewsBitcoin_Scenario_2(){
-
-        String searchword = "bitcoin";
-        List<Article> testList = new ArrayList<Article>();
-        List<Article> acceptedList = new ArrayList<Article>();
-
-        Article first = new Article("Ian Smith", "Cryptos sind cool");
-        Article second = new Article("Peter Smith", "Bitcoin ist cool");
-        Article third = new Article("Franz Smith", "Cryptos sind königlich");
-
-        testList.add(first);
-        testList.add(second);
-        testList.add(third);
-        acceptedList.add(second);
-        assertEquals(acceptedList, AppController.filterList(searchword, testList));
-    }
 
     @Test
     @DisplayName("Query in title, not important if case sensitive or not")
