@@ -9,13 +9,13 @@ public class Menu {
 
 
     public void start() {
-        for (int i = 0; i < 4; i++) {
+       while (true) {
 
-            printMenu();
-            handleInput(new Scanner(System.in).next());
+           printMenu();
+           handleInput(new Scanner(System.in).next());
 
+       }
 
-        }
 
 
     }

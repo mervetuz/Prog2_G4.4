@@ -29,6 +29,6 @@ public class Article {
         return "Article{" +
                 "author='" + author + '\'' +
                 ", title='" + title + '\'' +
-                '}';
+                '}'+"\n";
     }
 }
