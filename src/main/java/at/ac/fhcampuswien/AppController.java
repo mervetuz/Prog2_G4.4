@@ -41,6 +41,14 @@ public class AppController {
             return articles;
         }
 
+    /***
+     * the function returned a search string (query) and a list.
+     * A list of articles in which the query in the title is returned.
+     * Upper and lower case should not be considered.
+     * @param query
+     * @param articles
+     * @return
+     */
     protected static List<Article> filterList(String query,List<Article> articles){
         List<Article> newList = new ArrayList<Article>();
         for (int i = 0; i < articles.size(); i++) {
