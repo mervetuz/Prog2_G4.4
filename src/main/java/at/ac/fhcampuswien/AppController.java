@@ -60,7 +60,7 @@ public class AppController {
     private static List<Article> generateMockList(){
 
         List<Article> liste = new ArrayList<Article>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             liste.add(new Article("Author "+i,"Title "+i));
         }
 

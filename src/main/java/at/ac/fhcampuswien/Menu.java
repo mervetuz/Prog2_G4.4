@@ -15,9 +15,6 @@ public class Menu {
            handleInput(new Scanner(System.in).next());
 
        }
-
-
-
     }
 
     private void handleInput(String input){

@@ -27,8 +27,8 @@ public class Article {
     @Override
     public String toString() { //automatically created
         return "Article{" +
-                "author='" + author + '\'' +
-                ", title='" + title + '\'' +
+                "author='" + author + '\'' + "\n" +
+                ", title='" + title + '\'' + "\n" +
                 '}'+"\n";
     }
 }
