@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="624.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.MenuController">
+   <children>
+      <ImageView fitHeight="630.0" fitWidth="427.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/Background.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn_Headlines" blendMode="HARD_LIGHT" layoutX="63.0" layoutY="381.0" mnemonicParsing="false" onAction="#click_Headlines" prefHeight="42.0" prefWidth="302.0" text="Top Headlines from Austria" textFill="#2b448d" />
+      <Button fx:id="btn_Bitcoin" blendMode="HARD_LIGHT" layoutX="63.0" layoutY="440.0" mnemonicParsing="false" onAction="#click_Bitcoin" prefHeight="42.0" prefWidth="302.0" text="All Bitcoin News" textFill="#2b448d" />
+      <Button fx:id="btn_ArticlesNr" blendMode="HARD_LIGHT" layoutX="61.0" layoutY="496.0" mnemonicParsing="false" onAction="#click_NumberOfArticles" prefHeight="42.0" prefWidth="302.0" text="Number of Articles" textFill="#2b448d" />
+      <Button fx:id="btn_Exit" blendMode="HARD_LIGHT" layoutX="61.0" layoutY="552.0" mnemonicParsing="false" onAction="#click_Exit" prefHeight="42.0" prefWidth="302.0" text="Exit" textFill="#2b448d" />
+      <TextArea fx:id="txt_Display" layoutX="57.0" layoutY="86.0" prefHeight="256.0" prefWidth="302.0" />
+      <Label layoutX="56.0" layoutY="14.0" prefHeight="40.0" prefWidth="334.0" text="News App" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Avenir Book" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -21,9 +21,6 @@ public class Menu {
            handleInput(new Scanner(System.in).next());
 
        }
-
-
-
     }
     /**
      * Menu:
