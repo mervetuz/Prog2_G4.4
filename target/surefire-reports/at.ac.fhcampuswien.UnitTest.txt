@@ -1,7 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: at.ac.fhcampuswien.UnitTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in at.ac.fhcampuswien.UnitTest
-at.ac.fhcampuswien.UnitTest  Time elapsed: 0.002 s  <<< ERROR!
-org.junit.platform.commons.JUnitException: @BeforeAll method 'void at.ac.fhcampuswien.UnitTest.setup()' must be static unless the test class is annotated with @TestInstance(Lifecycle.PER_CLASS).
-
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in at.ac.fhcampuswien.UnitTest
