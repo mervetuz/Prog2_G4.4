@@ -80,12 +80,6 @@ public class UnitTest {
     }
 
     @Test
-    @DisplayName("Headlines are in Capslock ")
-    public void test_getTopHeadlinesAustria_Scenario_1(){
-
-    }
-
-    @Test
     @DisplayName("Empty List")
     public void test_getTopHeadLinesAustria_Scenario_2(){
         AppController ctrl = new AppController();
@@ -101,17 +95,17 @@ public class UnitTest {
 
         assertEquals(expected, ctrl.getTopHeadlinesAustria());
 
-
-
     }
 
     @Test
-    @DisplayName("Has bitcoin in the title, regardless of whether case sensitive or not") //Getting all news with "bitcoin" in the title
+    //Getting all news with "bitcoin" in the title
+    @DisplayName("Has bitcoin in the title, regardless of whether case sensitive or not")
     public void test_getAllNewsBitcoin_Scenario_1(){
 
         List <Article> testList = new ArrayList<Article>();
         List<Article> acceptedList = new ArrayList<Article>();
         AppController ctrl = new AppController();
+
         Article first = new Article("Ian Smith", "Cryptos sind cool");
         Article second = new Article("Peter Smith", "Bitcoin ist cool");
         Article third = new Article("Franz Smith", "Cryptos sind königlich");
@@ -133,6 +127,7 @@ public class UnitTest {
         String searchWord = "Ich";
         List<Article> testList = new ArrayList<Article>();
         List<Article> acceptedList = new ArrayList<Article>();
+
         Article first = new Article("Peter","Das ist ein Article");
         Article second = new Article("Hans","Ich bin ein Article");
         Article third = new Article("Gustav","Das ist ein Article");
@@ -150,6 +145,7 @@ public class UnitTest {
         String searchWord = "ich";
         List<Article> testList = new ArrayList<Article>();
         List<Article> acceptedList = new ArrayList<Article>();
+
         Article first = new Article("Peter","Das ist ein Article");
         Article second = new Article("Hans","Ich bin ein Article");
         Article third = new Article("Gustav","Das ist ein Article");
