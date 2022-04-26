@@ -35,14 +35,27 @@ Achtet darauf, dass die Methoden der NewsApi Klasse so flexibel wie möglich sin
         Gson gson = builder.create();
         NewsResponse response = gson.fromJson(getInformation("https://newsapi.org/v2/top-headlines?country=at&apiKey=1c3a1d04cc674ddaa897818225da2afe"), NewsResponse.class);
         return response;
-
     }
+
+    public NewsResponse gson1() throws IOException {
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+        Gson gson = builder.create();
+        NewsResponse response_bitcoin = gson.fromJson(getInformation("https://newsapi.org/v2/everything?q=bitcoin&apiKey=1c3a1d04cc674ddaa897818225da2afe&language=de"), NewsResponse.class);
+        return response_bitcoin;
+    }
+
+
 
     public static void main(String[] args) throws IOException {
 
-        NewsAPI topheadlines_at = new NewsAPI();
+        NewsAPI gettopheadlines = new NewsAPI();
+        NewsAPI response_bitcoin = new NewsAPI();
 
-       topheadlines_at.gson();
+        response_bitcoin.gson1();
+
+        gettopheadlines.gson();
 
 
         /*String response = topheadlines_at.getInformation("https://newsapi.org/v2/top-headlines?country=at&apiKey=1c3a1d04cc674ddaa897818225da2afe");
