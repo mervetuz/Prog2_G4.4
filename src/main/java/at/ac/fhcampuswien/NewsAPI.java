@@ -1,5 +1,7 @@
 package at.ac.fhcampuswien;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -16,7 +18,7 @@ Achtet darauf, dass die Methoden der NewsApi Klasse so flexibel wie möglich sin
 
     final OkHttpClient client = new OkHttpClient();
 
-    String run(String url) throws IOException {
+    public String getInformation(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -25,11 +27,26 @@ Achtet darauf, dass die Methoden der NewsApi Klasse so flexibel wie möglich sin
             return response.body().string();
         }
     }
+
+    public NewsResponse gson() throws IOException {
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+        Gson gson = builder.create();
+        NewsResponse response = gson.fromJson(getInformation("https://newsapi.org/v2/top-headlines?country=at&apiKey=1c3a1d04cc674ddaa897818225da2afe"), NewsResponse.class);
+        return response;
+
+    }
+
     public static void main(String[] args) throws IOException {
 
         NewsAPI topheadlines_at = new NewsAPI();
-        String response = topheadlines_at.run("https://newsapi.org/v2/top-headlines?country=at&apiKey=1c3a1d04cc674ddaa897818225da2afe");
-        System.out.println(response);
+
+       topheadlines_at.gson();
+
+
+        /*String response = topheadlines_at.getInformation("https://newsapi.org/v2/top-headlines?country=at&apiKey=1c3a1d04cc674ddaa897818225da2afe");
+        System.out.println(response); */
 
 
     }

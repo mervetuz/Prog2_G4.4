@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -35,6 +36,20 @@ public class AppController {
 
     //Should only return the list of Articles. If the list is null, an empty list should be returned
     public List<Article> getTopHeadlinesAustria(){
+        NewsAPI gettopheadlines = new NewsAPI();
+
+
+
+        try { //Need to handle gson because of the IOException in NewsAPI
+
+            articles = gettopheadlines.gson().getArticles();
+
+        }catch (IOException e){
+
+
+        }
+
+
         if (articles == null) {
             return new ArrayList<Article>();
         }else
