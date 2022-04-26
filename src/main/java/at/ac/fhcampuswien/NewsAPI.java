@@ -27,9 +27,10 @@ Achtet darauf, dass die Methoden der NewsApi Klasse so flexibel wie möglich sin
     }
     public static void main(String[] args) throws IOException {
 
-        NewsAPI example = new NewsAPI();
-        String response = example.run("https://newsapi.org/v2/top-headlines?country=at&apiKey=1c3a1d04cc674ddaa897818225da2afe");
+        NewsAPI topheadlines_at = new NewsAPI();
+        String response = topheadlines_at.run("https://newsapi.org/v2/top-headlines?country=at&apiKey=1c3a1d04cc674ddaa897818225da2afe");
         System.out.println(response);
+
 
     }
 
