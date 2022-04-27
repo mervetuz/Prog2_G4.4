@@ -11,7 +11,8 @@ public class AppController {
 
     public AppController() {
         articles = new ArrayList<Article>();
-        this.articles = getAllNewsBitcoin();
+
+
     }
 
 
@@ -65,16 +66,7 @@ public class AppController {
      */
     protected static List<Article> filterList(String query, List<Article> articles) {
 
-        NewsAPI response_bitcoin = new NewsAPI();
 
-        try {
-
-            articles = response_bitcoin.gson1().getArticles();
-
-        } catch (IOException e) {
-
-
-        }
 
 
         List<Article> newList = new ArrayList<Article>();
@@ -89,7 +81,25 @@ public class AppController {
     }
 
     public List<Article> getAllNewsBitcoin() {
-        return filterList("Bitcoin", articles);
+
+        NewsAPI response_bitcoin = new NewsAPI();
+
+        try {
+
+            articles = response_bitcoin.gson1().getArticles();
+
+        } catch (IOException e) {
+
+
+        }
+
+
+
+
+
+
+
+        return articles = filterList("Bitcoin", articles);
     }
 
   /*  private static List<Article> generateMockList(){
@@ -107,7 +117,6 @@ public class AppController {
         return liste;
     }
 */
-
 
 
 }
