@@ -10,8 +10,7 @@ public class App  extends Application {
     public static void main(String[] args){
         launch(args);
 
-       // Menu menu = new Menu();
-       // menu.start();
+
     }
 
     @Override
@@ -21,7 +20,7 @@ public class App  extends Application {
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         primaryStage.show();
 
     }

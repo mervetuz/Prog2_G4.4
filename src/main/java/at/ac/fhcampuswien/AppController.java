@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -8,9 +9,10 @@ public class AppController {
 
     private List<Article> articles;
 
-    public AppController(){
+    public AppController() {
         articles = new ArrayList<Article>();
-        this.articles=generateMockList();
+
+
     }
 
 
@@ -19,13 +21,13 @@ public class AppController {
         this.articles = articles;
     }
 
-    public List<Article> getArticles(){
+    public List<Article> getArticles() {
         return articles;
     }
     //Returns the number of items in the list. If the list is null, 0 should be returned
 
 
-    public int getArticleCount(){
+    public int getArticleCount() {
         if (articles.size() != 0) {
             return articles.size();
         } else {
@@ -34,12 +36,25 @@ public class AppController {
     }
 
     //Should only return the list of Articles. If the list is null, an empty list should be returned
-    public List<Article> getTopHeadlinesAustria(){
+    public List<Article> getTopHeadlinesAustria() {
+        NewsAPI gettopheadlines = new NewsAPI();
+
+
+        try { //Need to handle gson because of the IOException in NewsAPI
+
+            articles = gettopheadlines.gson().getArticles();
+
+        } catch (IOException e) {
+
+
+        }
+
+
         if (articles == null) {
             return new ArrayList<Article>();
-        }else
+        } else
             return articles;
-        }
+    }
 
     /***
      * the function returned a search string (query) and a list.
@@ -49,10 +64,14 @@ public class AppController {
      * @param articles
      * @return
      */
-    protected static List<Article> filterList(String query,List<Article> articles){
+    protected static List<Article> filterList(String query, List<Article> articles) {
+
+
+
+
         List<Article> newList = new ArrayList<Article>();
         for (int i = 0; i < articles.size(); i++) {
-            if (articles.get(i).getTitle().toLowerCase().contains(query.toLowerCase())){
+            if (articles.get(i).getTitle().toLowerCase().contains(query.toLowerCase())) {
                 newList.add(articles.get(i));
             }
 
@@ -61,11 +80,29 @@ public class AppController {
         return newList;
     }
 
-    public List<Article> getAllNewsBitcoin(){
-        return filterList("Bitcoin",articles);
+    public List<Article> getAllNewsBitcoin() {
+
+        NewsAPI response_bitcoin = new NewsAPI();
+
+        try {
+
+            articles = response_bitcoin.gson1().getArticles();
+
+        } catch (IOException e) {
+
+
+        }
+
+
+
+
+
+
+
+        return articles = filterList("Bitcoin", articles);
     }
 
-    private static List<Article> generateMockList(){
+  /*  private static List<Article> generateMockList(){
 
         List<Article> liste = new ArrayList<Article>();
         for (int i = 0; i < 10; i++) {
@@ -75,6 +112,11 @@ public class AppController {
         liste.add(new Article("El Salvador", "Tech this week: El Salvador rejects IMF call to drop Bitcoin use"));
         liste.add(new Article("Ian Smith", "Bitcoin price crash: Crypto extends losses as market fails to rally"));
 
+
+
         return liste;
     }
+*/
+
+
 }
