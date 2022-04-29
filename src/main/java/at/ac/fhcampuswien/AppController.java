@@ -42,7 +42,16 @@ public class AppController {
 
         try { //Need to handle gson because of the IOException in NewsAPI
 
-            articles = gettopheadlines.gson().getArticles();
+            String url = "https://newsapi.org/v2/top-headlines?apiKey=1c3a1d04cc674ddaa897818225da2afe";
+            country mycountry;
+            mycountry = country.AUSTRIA;
+            switch (mycountry){
+                case AUSTRIA -> url = url+country.AUSTRIA.value;
+                case GERMANY -> url = url+country.GERMANY.value;
+
+            }
+
+            articles = gettopheadlines.gson(url).getArticles();
 
         } catch (IOException e) {
 
@@ -100,6 +109,33 @@ public class AppController {
 
 
         return articles = filterList("Bitcoin", articles);
+    }
+
+
+    enum category{
+
+
+    }
+    enum country{
+        AUSTRIA ("&country=at"),
+        GERMANY ("&country=de");
+
+        private final String value;
+        country (String value){
+            this.value = value;
+        }
+
+
+
+    }
+    enum endpoint{
+
+    }
+    enum language{
+
+    }
+    enum sortby{
+
     }
 
   /*  private static List<Article> generateMockList(){

@@ -23,12 +23,13 @@ public class NewsAPI {
         }
     }
 
-    public NewsResponse gson() throws IOException {
+    public NewsResponse gson(String url) throws IOException {
 
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
-        NewsResponse response = gson.fromJson(getInformation("https://newsapi.org/v2/top-headlines?country=at&apiKey=1c3a1d04cc674ddaa897818225da2afe"), NewsResponse.class);
+        String country;
+        NewsResponse response = gson.fromJson(getInformation(url), NewsResponse.class);
         return response;
     }
 
@@ -49,7 +50,7 @@ public class NewsAPI {
 
         response_bitcoin.gson1();
 
-        gettopheadlines.gson();
+        gettopheadlines.gson("bla");
 
 
     }
