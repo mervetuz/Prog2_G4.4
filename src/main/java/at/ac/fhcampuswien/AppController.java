@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class AppController {
+    private final String urlEverything =  "https://newsapi.org/v2/everything?apiKey=1c3a1d04cc674ddaa897818225da2afe";
+    private final String urlTopHeadlines= "https://newsapi.org/v2/top-headlines?apiKey=1c3a1d04cc674ddaa897818225da2afe";
 
     private List<Article> articles;
 
@@ -39,10 +41,9 @@ public class AppController {
     public List<Article> getTopHeadlinesAustria() {
         NewsAPI gettopheadlines = new NewsAPI();
 
-
         try { //Need to handle gson because of the IOException in NewsAPI
 
-            String url = "https://newsapi.org/v2/top-headlines?apiKey=1c3a1d04cc674ddaa897818225da2afe";
+            String url = urlTopHeadlines;
             country mycountry;
             mycountry = country.AUSTRIA;
             switch (mycountry){
