@@ -47,8 +47,28 @@ public class AppController {
             country mycountry;
             mycountry = country.AUSTRIA;
             switch (mycountry){
-                case AUSTRIA -> url = url+country.AUSTRIA.value;
-                case GERMANY -> url = url+country.GERMANY.value;
+                case AUSTRIA -> url = url + country.AUSTRIA.value;
+                case GERMANY -> url = url + country.GERMANY.value;
+                case ENGLAND -> {
+                    url = url + country.ENGLAND.value;
+
+                    //Neu
+
+                    category mycategory;
+                    mycategory = category.GENERAL;
+                    switch (mycategory){
+                        case GENERAL -> url = url + category.GENERAL.value;
+                        case HEALTH -> url = url + category.HEALTH.value;
+                        case SPORTS -> url = url + category.SPORTS.value;
+                        case SCIENCE -> url = url + category.SCIENCE.value;
+                        case BUSINESS -> url = url + category.BUSINESS.value;
+                        case TECHNOLOGY -> url = url + category.TECHNOLOGY.value;
+                        case ENTERTAINMENT -> url = url + category.ENTERTAINMENT.value;
+                    }
+
+
+                }
+
 
             }
 
@@ -96,6 +116,22 @@ public class AppController {
 
         try {
 
+        /*
+            String url1 = urlEverything;
+            language mylanguage;
+            mylanguage = language.GERMAN;
+
+            switch(mylanguage){
+
+                case GERMAN -> url1 = url1 + language.GERMAN.value_language;
+
+                case ENGLISH -> url1 = url1 + language.ENGLISH.value_language;
+            }
+            articles = response_bitcoin.gson(url1).getArticles();
+
+
+         */
+
             articles = response_bitcoin.gson1().getArticles();
 
         } catch (IOException e) {
@@ -104,22 +140,32 @@ public class AppController {
         }
 
 
-
-
-
-
-
         return articles = filterList("Bitcoin", articles);
     }
 
 
     enum category{
 
+        BUSINESS ("&category=business"),
+        ENTERTAINMENT ("&category=entertainment"),
+        GENERAL ("&category=general"),
+        HEALTH ("&category=general"),
+        SCIENCE ("&category=science"),
+        SPORTS ("&category=science"),
+        TECHNOLOGY ("&category=science");
+
+        private final String value;
+        category(String value){
+            this.value = value;
+        }
 
     }
     enum country{
         AUSTRIA ("&country=at"),
-        GERMANY ("&country=de");
+        GERMANY ("&country=de"),
+        ENGLAND("&country=gb");
+
+
 
         private final String value;
         country (String value){
@@ -131,8 +177,17 @@ public class AppController {
     }
     enum endpoint{
 
+        // Our 2 Endpoints are Everything & Top Headlines
+
     }
     enum language{
+        GERMAN ("&language=de"),
+        ENGLISH("&language=en");
+
+        private final String value_language;
+        language (String value_language){
+            this.value_language = value_language;
+        }
 
     }
     enum sortby{
