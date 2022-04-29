@@ -25,9 +25,9 @@ public class UnitTest {
     public void setup() {
         ctrl = new AppController();
         articles = new ArrayList<>();
-        first = new Article("Peter", "Ich bin ein Article!", "jdksskdjskd", "kjshdajkhsd");
-        second = new Article("Lukas", "Das ist ein Article!", "aksjhdajk", "kashdakjsdh");
-        third = new Article("Robert", "Nein, das ist ein bitcoin", "jdksskdjskd", "kjshdajkhsd");
+        first = new Article("Peter", "Ich bin ein Article!", "jdksskdjskd", "kjshdajkhsd", "ksjhd", "ksfds","ksjhdjsh");
+        second = new Article("Lukas", "Das ist ein Article!", "aksjhdajk", "kashdakjsdh", "ksjhd", "ksfds","ksjhdjsh");
+        third = new Article("Robert", "Nein, das ist ein bitcoin", "jdksskdjskd", "kjshdajkhsd", "ksjhd", "ksfds","ksjhdjsh");
     }
 
     @AfterAll
