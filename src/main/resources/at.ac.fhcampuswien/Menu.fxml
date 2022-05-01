@@ -19,7 +19,10 @@
       <Button fx:id="btn_Bitcoin" blendMode="HARD_LIGHT" layoutX="511.0" layoutY="629.0" mnemonicParsing="false" onAction="#click_Bitcoin" prefHeight="42.0" prefWidth="302.0" text="All Bitcoin News" textFill="#2b448d" />
       <Button fx:id="btn_ArticlesNr" blendMode="HARD_LIGHT" layoutX="822.0" layoutY="629.0" mnemonicParsing="false" onAction="#click_NumberOfArticles" prefHeight="42.0" prefWidth="302.0" text="Number of Articles" textFill="#2b448d" />
       <Button fx:id="btn_Exit" blendMode="HARD_LIGHT" layoutX="1134.0" layoutY="629.0" mnemonicParsing="false" onAction="#click_Exit" prefHeight="42.0" prefWidth="302.0" text="Exit" textFill="#2b448d" />
-      <TextArea fx:id="txt_Display" layoutX="630.0" layoutY="132.0" opacity="0.88" prefHeight="435.0" prefWidth="806.0" style="-fx-border-radius: 20px;" />
+      <TextArea fx:id="txt_Display" editable="false" layoutX="630.0" layoutY="132.0" opacity="0.88" prefHeight="435.0" prefWidth="806.0" style="-fx-border-radius: 20px;">
+         <font>
+            <Font size="15.0" />
+         </font></TextArea>
       <Label layoutX="56.0" layoutY="38.0" prefHeight="40.0" prefWidth="334.0" text="News App" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Avenir Book" size="45.0" />

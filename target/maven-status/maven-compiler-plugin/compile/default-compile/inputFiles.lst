@@ -1,7 +1,12 @@
 /Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/at/ac/fhcampuswien/Article.java
+/Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/enums/Category.java
+/Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/enums/SortBy.java
 /Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/at/ac/fhcampuswien/NewsResponse.java
+/Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/enums/Language.java
 /Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/at/ac/fhcampuswien/NewsAPI.java
 /Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/at/ac/fhcampuswien/MenuController.java
+/Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/enums/Country.java
 /Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/at/ac/fhcampuswien/AppController.java
+/Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/enums/Endpoint.java
 /Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/at/ac/fhcampuswien/Menu.java
 /Users/aska/Projects/PROG2/Prog2_G4.4/src/main/java/at/ac/fhcampuswien/App.java
