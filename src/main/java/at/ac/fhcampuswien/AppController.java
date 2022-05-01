@@ -1,5 +1,7 @@
 package at.ac.fhcampuswien;
 
+import enums.Endpoint;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,23 +39,16 @@ public class AppController {
 
     //Should only return the list of Articles. If the list is null, an empty list should be returned
     public List<Article> getTopHeadlinesAustria() {
-        NewsAPI gettopheadlines = new NewsAPI();
+        NewsAPI api = new NewsAPI("corona", Endpoint.TOP_HEADLINES );
+        NewsResponse response = api.requestData();
 
-
-        try { //Need to handle gson because of the IOException in NewsAPI
-
-            articles = gettopheadlines.gson().getArticles();
-
-        } catch (IOException e) {
-
-
+        if (response != null) {
+            articles = response.getArticles();
+            return response.getArticles();
         }
 
+        return new ArrayList<>();
 
-        if (articles == null) {
-            return new ArrayList<Article>();
-        } else
-            return articles;
     }
 
     /***
@@ -81,25 +76,15 @@ public class AppController {
     }
 
     public List<Article> getAllNewsBitcoin() {
+        NewsAPI api = new NewsAPI("bitcoing", Endpoint.EVERYTHING );
+        NewsResponse response = api.requestData();
 
-        NewsAPI response_bitcoin = new NewsAPI();
-
-        try {
-
-            articles = response_bitcoin.gson1().getArticles();
-
-        } catch (IOException e) {
-
-
+        if (response != null) {
+            articles = response.getArticles();
+            return response.getArticles();
         }
 
-
-
-
-
-
-
-        return articles = filterList("Bitcoin", articles);
+        return new ArrayList<>();
     }
 
   /*  private static List<Article> generateMockList(){
