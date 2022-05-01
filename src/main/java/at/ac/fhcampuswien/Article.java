@@ -28,12 +28,15 @@ public class Article {
         return this.title;
     }
 
-
     @Override
     public String toString() { //automatically created
-        return "Article{" +
-                "author='" + author + '\'' + "\n" +
-                ", title='" + title + '\'' + "\n" +
-                '}'+"\n";
+        return "\nArticle\n" +
+                "Author: " + author + "\n" +
+                "Title: " + title + "\n" +
+                "Description: " + description + "\n" +
+                "Url: " + url + "\n" +
+                "Image Url: " + urlToImage + "\n" +
+                "Published at: " + publishedAt + "\n" +
+                "Content: " + content + "\n" ;
     }
 }
