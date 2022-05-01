@@ -10,6 +10,7 @@ public class Article {
     private final String publishedAt;
     private final String content;
 
+
     public Article(String author, String title, String description, String url, String urlToImage, String publishedAt, String content){
         this.author = author;
         this.title = title;
@@ -21,10 +22,9 @@ public class Article {
 
     }
 
-    //public String getAuthor() { return this.author; }
-    public String getTitle() { return this.title; }
-    //public String getDescription() { return this.description; }
+    public String getAuthor() { return this.author; }
 
+    public String getTitle() { return this.title; }
 
     @Override
     public String toString() { //automatically created
@@ -32,10 +32,9 @@ public class Article {
                 "Author: " + author + "\n" +
                 "Title: " + title + "\n" +
                 "Description: " + description + "\n" +
-                "url: " + url + "\n" +
-                "urlToImage: " + urlToImage + "\n" +
+                "Url: " + url + "\n" +
+                "Image Url: " + urlToImage + "\n" +
                 "Published at: " + publishedAt + "\n" +
-                 "Content: " + content + "\n" +
-                "\n";
+                "Content: " + content + "\n" ;
     }
 }
