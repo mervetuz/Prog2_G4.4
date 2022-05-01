@@ -1,6 +1,5 @@
 package at.ac.fhcampuswien;
 
-import java.util.Date;
 
 public class Article {
     private final String author;
@@ -23,13 +22,9 @@ public class Article {
 
     }
 
-    public String getAuthor() {
-        return this.author;
-    }
+    public String getAuthor() { return this.author; }
 
-    public String getTitle() {
-        return this.title;
-    }
+    public String getTitle() { return this.title; }
 
     @Override
     public String toString() { //automatically created

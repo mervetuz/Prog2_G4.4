@@ -163,8 +163,6 @@ public class AppController {
         liste.add(new Article("El Salvador", "Tech this week: El Salvador rejects IMF call to drop Bitcoin use"));
         liste.add(new Article("Ian Smith", "Bitcoin price crash: Crypto extends losses as market fails to rally"));
 
-
-
         return liste;
     }
 */
