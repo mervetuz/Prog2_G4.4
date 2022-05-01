@@ -29,31 +29,9 @@ public class NewsAPI {
         builder.setPrettyPrinting();
         Gson gson = builder.create();
         String country;
-        NewsResponse response = gson.fromJson(getInformation(url), NewsResponse.class);
-        return response;
+        return gson.fromJson(getInformation(url), NewsResponse.class);
     }
 
-    public NewsResponse gson1() throws IOException {
-
-        GsonBuilder builder = new GsonBuilder();
-        builder.setPrettyPrinting();
-        Gson gson = builder.create();
-        NewsResponse response_bitcoin = gson.fromJson(getInformation("https://newsapi.org/v2/everything?q=bitcoin&apiKey=1c3a1d04cc674ddaa897818225da2afe&language=de"), NewsResponse.class);
-        return response_bitcoin;
-    }
-
-
-    public static void main(String[] args) throws IOException {
-
-        NewsAPI gettopheadlines = new NewsAPI();
-        NewsAPI response_bitcoin = new NewsAPI();
-
-        response_bitcoin.gson1();
-
-        gettopheadlines.gson("bla");
-
-
-    }
 
 
 }

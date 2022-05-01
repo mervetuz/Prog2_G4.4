@@ -3,20 +3,13 @@ package at.ac.fhcampuswien;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class AppController {
-    private final String urlEverything =  "https://newsapi.org/v2/everything?apiKey=1c3a1d04cc674ddaa897818225da2afe";
-    private final String urlTopHeadlines= "https://newsapi.org/v2/top-headlines?apiKey=1c3a1d04cc674ddaa897818225da2afe";
-
     private List<Article> articles;
 
     public AppController() {
         articles = new ArrayList<Article>();
-
-
     }
-
 
     //Setter for the Articles list
     public void setArticles(List<Article> articles) {
@@ -28,7 +21,6 @@ public class AppController {
     }
     //Returns the number of items in the list. If the list is null, 0 should be returned
 
-
     public int getArticleCount() {
         if (articles.size() != 0) {
             return articles.size();
@@ -39,46 +31,11 @@ public class AppController {
 
     //Should only return the list of Articles. If the list is null, an empty list should be returned
     public List<Article> getTopHeadlinesAustria() {
-        NewsAPI gettopheadlines = new NewsAPI();
+        NewsAPI getTopHeadlines = new NewsAPI();
 
         try { //Need to handle gson because of the IOException in NewsAPI
-
-            String url = urlTopHeadlines;
-            country mycountry;
-            mycountry = country.AUSTRIA;
-            switch (mycountry){
-                case AUSTRIA -> url = url + country.AUSTRIA.value;
-                case GERMANY -> url = url + country.GERMANY.value;
-                case ENGLAND -> {
-                    url = url + country.ENGLAND.value;
-
-                    //Neu
-
-                    category mycategory;
-                    mycategory = category.GENERAL;
-                    switch (mycategory){
-                        case GENERAL -> url = url + category.GENERAL.value;
-                        case HEALTH -> url = url + category.HEALTH.value;
-                        case SPORTS -> url = url + category.SPORTS.value;
-                        case SCIENCE -> url = url + category.SCIENCE.value;
-                        case BUSINESS -> url = url + category.BUSINESS.value;
-                        case TECHNOLOGY -> url = url + category.TECHNOLOGY.value;
-                        case ENTERTAINMENT -> url = url + category.ENTERTAINMENT.value;
-                    }
-
-
-                }
-
-
-            }
-
-            articles = gettopheadlines.gson(url).getArticles();
-
-        } catch (IOException e) {
-
-
-        }
-
+            articles = getTopHeadlines.gson(endpoints.TOP_HEADLINES.value_endpoint + country.AUSTRIA.value_country).getArticles();
+        } catch (IOException e) {}
 
         if (articles == null) {
             return new ArrayList<Article>();
@@ -96,17 +53,12 @@ public class AppController {
      */
     protected static List<Article> filterList(String query, List<Article> articles) {
 
-
-
-
         List<Article> newList = new ArrayList<Article>();
         for (int i = 0; i < articles.size(); i++) {
             if (articles.get(i).getTitle().toLowerCase().contains(query.toLowerCase())) {
                 newList.add(articles.get(i));
             }
-
         }
-
         return newList;
     }
 
@@ -116,82 +68,89 @@ public class AppController {
 
         try {
 
-        /*
-            String url1 = urlEverything;
-            language mylanguage;
-            mylanguage = language.GERMAN;
-
-            switch(mylanguage){
-
-                case GERMAN -> url1 = url1 + language.GERMAN.value_language;
-
-                case ENGLISH -> url1 = url1 + language.ENGLISH.value_language;
-            }
-            articles = response_bitcoin.gson(url1).getArticles();
-
-
-         */
-
-            articles = response_bitcoin.gson1().getArticles();
+            articles = response_bitcoin.gson(endpoints.EVERYTHING.value_endpoint + "&q=bitcoin").getArticles();
 
         } catch (IOException e) {
-
-
         }
-
-
         return articles = filterList("Bitcoin", articles);
     }
 
+    /**
+     * Usable for Endpoint Top-Headlines
+     */
+    enum category {
 
-    enum category{
+        BUSINESS("&category=business"),
+        ENTERTAINMENT("&category=entertainment"),
+        GENERAL("&category=general"),
+        HEALTH("&category=general"),
+        SCIENCE("&category=science"),
+        SPORTS("&category=science"),
+        TECHNOLOGY("&category=science");
 
-        BUSINESS ("&category=business"),
-        ENTERTAINMENT ("&category=entertainment"),
-        GENERAL ("&category=general"),
-        HEALTH ("&category=general"),
-        SCIENCE ("&category=science"),
-        SPORTS ("&category=science"),
-        TECHNOLOGY ("&category=science");
+        private final String value_category;
 
-        private final String value;
-        category(String value){
-            this.value = value;
+        category(String value_category) {
+            this.value_category = value_category;
         }
 
     }
-    enum country{
-        AUSTRIA ("&country=at"),
-        GERMANY ("&country=de"),
+
+    /**
+     * Usable for Endpoint Top-Headlines
+     */
+    enum country {
+        AUSTRIA("&country=at"),
+        GERMANY("&country=de"),
         ENGLAND("&country=gb");
 
 
+        private final String value_country;
 
-        private final String value;
-        country (String value){
-            this.value = value;
+        country(String value_country) {
+            this.value_country = value_country;
         }
 
 
-
     }
-    enum endpoint{
 
-        // Our 2 Endpoints are Everything & Top Headlines
-
-    }
-    enum language{
-        GERMAN ("&language=de"),
+    /**
+     * Usable for Endpoint Everything
+     */
+    enum language {
+        GERMAN("&language=de"),
         ENGLISH("&language=en");
 
         private final String value_language;
-        language (String value_language){
+
+        language(String value_language) {
             this.value_language = value_language;
         }
 
     }
-    enum sortby{
 
+    /**
+     * Usable for Endpoint Everything
+     */
+    enum sortby {
+        RELEVANCY ("&sortBy=relevancy"),
+        POPULARITY ("&sortBy=popularity"),
+        PUBLISHED_AT ("&sortBy=publishedAt");
+        private final String value_sortby;
+
+        sortby(String value_sortby) {
+            this.value_sortby = value_sortby;
+        }
+    }
+
+    enum endpoints {
+        EVERYTHING("https://newsapi.org/v2/everything?apiKey=1c3a1d04cc674ddaa897818225da2afe"),
+        TOP_HEADLINES("https://newsapi.org/v2/top-headlines?apiKey=1c3a1d04cc674ddaa897818225da2afe");
+        private final String value_endpoint;
+
+        endpoints(String value_endpoint) {
+            this.value_endpoint = value_endpoint;
+        }
     }
 
   /*  private static List<Article> generateMockList(){
