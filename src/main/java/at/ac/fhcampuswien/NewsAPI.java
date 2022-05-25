@@ -27,7 +27,7 @@ public class NewsAPI {
 
         } catch (UnknownHostException e){
             System.out.println("Internet is not connected");
-            return "Internet is not connected";
+            throw new RuntimeException(e);
 
         } catch (IOException e) {
             System.out.println("Ups! Something went wrong.");
