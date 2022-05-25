@@ -1,5 +1,8 @@
 package at.ac.fhcampuswien;
 
+import at.ac.fhcampuswien.enums.Country;
+import at.ac.fhcampuswien.enums.Endpoint;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +30,23 @@ public class AppController {
         } else {
             return 0;
         }
+
+
     }
 
     //Should only return the list of Articles
     public List<Article> getTopHeadlinesAustria() {
+        NewsAPI api = new NewsAPI("corona", Country.at, Endpoint.TOP_HEADLINES);
+        NewsResponse response = api.requestData();
+
+        try {
+            articles = response.getArticles();
+        } catch (NullPointerException e) {
+            System.out.println("Currently unavailable!");
+        }
+        return response.getArticles();
+
+       /*
         NewsAPI getTopHeadlines = new NewsAPI();
 
         try {
@@ -38,7 +54,7 @@ public class AppController {
         } catch (NullPointerException | IOException e) {
             System.out.println("Currently unavailable!");
         }
-        return articles;
+        return articles;*/
     }
 
     /***
@@ -49,7 +65,7 @@ public class AppController {
      * @param articles
      * @return
      */
-    protected static List<Article> filterList(String query, List<Article> articles) {
+    public List<Article> filterList(String query, List<Article> articles) {
 
         List<Article> newList = new ArrayList<Article>();
         for (int i = 0; i < articles.size(); i++) {
@@ -61,21 +77,21 @@ public class AppController {
     }
 
     public List<Article> getAllNewsBitcoin() {
-
-        NewsAPI response_bitcoin = new NewsAPI();
+        NewsAPI api = new NewsAPI("bitcoin", Endpoint.EVERYTHING);
+        NewsResponse response = api.requestData();
 
         try {
-            articles = response_bitcoin.gson(endpoints.EVERYTHING.value_endpoint + "&q=bitcoin").getArticles();
-        } catch (NullPointerException | IOException e){
-            System.out.println("No news about bitcoin are currently available!");
+            articles = response.getArticles();
+        } catch (NullPointerException e) {
+            System.out.println("Currently unavailable!");
         }
-        return articles = filterList("Bitcoin", articles);
+        return response.getArticles();
     }
-
-    /**
-     * Usable for Endpoint Top-Headlines
-     */
-    enum category {
+    /*
+       /**
+        * Usable for Endpoint Top-Headlines
+        */
+  /*   enum category {
 
         BUSINESS("&category=business"),
         ENTERTAINMENT("&category=entertainment"),
@@ -96,7 +112,7 @@ public class AppController {
     /**
      * Usable for Endpoint Top-Headlines
      */
-    enum country {
+   /*  enum country {
         AUSTRIA("&country=at"),
         GERMANY("&country=de"),
         ENGLAND("&country=gb");
@@ -114,7 +130,7 @@ public class AppController {
     /**
      * Usable for Endpoint Everything
      */
-    enum language {
+  /*   enum language {
         GERMAN("&language=de"),
         ENGLISH("&language=en");
 
@@ -129,7 +145,7 @@ public class AppController {
     /**
      * Usable for Endpoint Everything
      */
-    enum sortby {
+  /*   enum sortby {
         RELEVANCY ("&sortBy=relevancy"),
         POPULARITY ("&sortBy=popularity"),
         PUBLISHED_AT ("&sortBy=publishedAt");
@@ -149,7 +165,7 @@ public class AppController {
             this.value_endpoint = value_endpoint;
         }
     }
-
+*/
   /*  private static List<Article> generateMockList(){
 
         List<Article> liste = new ArrayList<Article>();
