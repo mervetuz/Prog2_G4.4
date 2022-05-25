@@ -82,47 +82,15 @@ public class NewsAPI {
                 System.err.println(this.getClass() + ": http status not ok");
                 return null;
             }
+        }  catch (UnknownHostException e){
+            System.out.println("Internet is not connected");
+            return null;
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
-
-
-
-
-
-/**
-    public String getInformation(String url) {
-
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            return (Objects.requireNonNull(response.body()).string()); //must not be null
-
-        } catch (UnknownHostException e){
-            System.out.println("Internet is not connected");
-            throw new RuntimeException(e);
-
-        } catch (IOException e) {
-            System.out.println("Ups! Something went wrong.");
-            throw new RuntimeException(e);
-        }
-    }
-
-    public NewsResponse gson(String url) throws IOException {
-
-        GsonBuilder builder = new GsonBuilder();
-        builder.setPrettyPrinting();
-        Gson gson = builder.create();
-        String country;
-        return gson.fromJson(getInformation(url), NewsResponse.class);
-    }
-
-**/
 
 }
 
