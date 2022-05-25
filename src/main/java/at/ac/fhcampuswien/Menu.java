@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien;
 
+import javax.crypto.NullCipher;
 import java.util.Scanner;
 /***
  * the Menu class is for outputting the console menu and for the responsible for user input.
@@ -57,16 +58,26 @@ public class Menu {
      * @param ctrl
      */
     private void getTopHeadlinesAustria(AppController ctrl){
-        System.out.println(ctrl.getTopHeadlinesAustria());
-
+        try {
+            System.out.println(ctrl.getTopHeadlinesAustria());
+        } catch (NullPointerException e) {
+            System.out.println("No Top Headlines in Austria are currently available!");
+        }
     }
+
+    //NullPointerException - pointing at something that doesn't exist
 
     /***
      * getAllNewsBitcoin(): the function calls the filterList() function with the query "bitcoin" on
      * @param ctrl
      */
     private void getAllNewsBitcoin(AppController ctrl){
-        System.out.println(ctrl.getAllNewsBitcoin());
+        try{
+            System.out.println(ctrl.getAllNewsBitcoin());
+        } catch (NullPointerException e) {
+            System.out.println("No news about bitcoin are currently available!");
+        }
+
 
     }
 
