@@ -29,18 +29,16 @@ public class AppController {
         }
     }
 
-    //Should only return the list of Articles. If the list is null, an empty list should be returned
+    //Should only return the list of Articles
     public List<Article> getTopHeadlinesAustria() {
         NewsAPI getTopHeadlines = new NewsAPI();
 
-        try { //Need to handle gson because of the IOException in NewsAPI
+        try {
             articles = getTopHeadlines.gson(endpoints.TOP_HEADLINES.value_endpoint + country.AUSTRIA.value_country).getArticles();
-        } catch (IOException e) {}
-
-        if (articles == null) {
-            return new ArrayList<Article>();
-        } else
-            return articles;
+        } catch (NullPointerException | IOException e) {
+            System.out.println("Currently unavailable!");
+        }
+        return articles;
     }
 
     /***
@@ -67,10 +65,9 @@ public class AppController {
         NewsAPI response_bitcoin = new NewsAPI();
 
         try {
-
             articles = response_bitcoin.gson(endpoints.EVERYTHING.value_endpoint + "&q=bitcoin").getArticles();
-
-        } catch (IOException e) {
+        } catch (NullPointerException | IOException e){
+            System.out.println("No news about bitcoin are currently available!");
         }
         return articles = filterList("Bitcoin", articles);
     }
