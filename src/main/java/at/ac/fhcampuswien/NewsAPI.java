@@ -7,19 +7,22 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class NewsAPI {
 
 
     final OkHttpClient client = new OkHttpClient();
 
-    public String getInformation(String url) throws IOException {
+    public String getInformation(String url) {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
+            return (Objects.requireNonNull(response.body()).string()); //must not be null
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
