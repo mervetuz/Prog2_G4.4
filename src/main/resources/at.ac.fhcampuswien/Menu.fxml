@@ -28,5 +28,20 @@
             <Font name="Avenir Book" size="45.0" />
          </font>
       </Label>
+      <ImageView fitHeight="50" fitWidth="50" layoutY="50.0" layoutX="1400" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/filter.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50" fitWidth="50" layoutY="50.0" layoutX="1320" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/category.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50" fitWidth="50" layoutY="50.0" layoutX="1250" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/sparache.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
