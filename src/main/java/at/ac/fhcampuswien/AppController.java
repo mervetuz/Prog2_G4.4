@@ -75,6 +75,39 @@ public class AppController {
         return articles = filterList("Bitcoin", articles);
     }
 
+
+    public List<Article> mostArticles(List<Article> in){
+        //in.stream()
+           return null;
+
+    }
+
+    public List<Article> longestNameAuthor(List<Article> in){
+       try {
+           String maxLength = in.stream()
+                   .max((aAuthor, bAuthor) -> aAuthor.getAuthor().length() - bAuthor.getAuthor().length())
+                   .toString();
+           return in.stream()
+                   .filter(x->x.getAuthor().equals(maxLength))
+                   .toList();
+       }catch (NullPointerException e)
+       {
+           System.out.println("welp");
+       }
+       return null;
+    }
+
+    public List<Article> NewYorkTimes (List<Article> in){
+return null;
+    }
+
+    public List<Article> lessthan15chars (List<Article> in){
+        return null;
+    }
+    public  List<Article> sortByDescription(List<Article> in){
+        return null;
+    }
+
     /**
      * Usable for Endpoint Top-Headlines
      */

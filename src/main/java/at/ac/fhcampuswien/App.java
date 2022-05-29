@@ -6,15 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class App  extends Application{
+public class App  {
     public static void main(String[] args){
-        launch(args);
-        //Menu menu = new Menu();
-        //menu.start();
+        //launch(args);
+        Menu menu = new Menu();
+        menu.start();
 
     }
 
-    @Override
+
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/at.ac.fhcampuswien/Menu.fxml"));
         Parent root = loader.load();

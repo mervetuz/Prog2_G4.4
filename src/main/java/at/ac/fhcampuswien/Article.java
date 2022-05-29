@@ -2,6 +2,7 @@ package at.ac.fhcampuswien;
 
 
 public class Article {
+    private final Source source;
     private final String author;
     private final String title;
     private final String description;
@@ -11,7 +12,7 @@ public class Article {
     private final String content;
 
 
-    public Article(String author, String title, String description, String url, String urlToImage, String publishedAt, String content){
+    public Article(String author, String title, String description, String url, String urlToImage, String publishedAt, String content, Source source){
         this.author = author;
         this.title = title;
         this.description = description;
@@ -19,6 +20,7 @@ public class Article {
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
         this.content = content;
+        this.source = source;
 
     }
 
@@ -37,4 +39,14 @@ public class Article {
                 "Published at: " + publishedAt + "\n" +
                 "Content: " + content + "\n" ;
     }
+}
+class Source{
+    private final String id;
+    private final String name;
+
+    Source(String id,String name){
+        this.id = id;
+        this.name = name;
+    }
+
 }
