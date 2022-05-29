@@ -37,4 +37,5 @@ public class NewsApiExceptions {
             return false;
         }
     }
+
 }
