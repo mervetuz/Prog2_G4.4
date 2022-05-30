@@ -22,6 +22,7 @@ public class Menu {
            printMenu();
            handleInput(new Scanner(System.in).next());
 
+
        }
     }
     /**
