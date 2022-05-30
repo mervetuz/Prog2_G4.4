@@ -2,6 +2,7 @@ package at.ac.fhcampuswien;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class AppController {
@@ -83,14 +84,21 @@ public class AppController {
     }
 
     public List<Article> longestNameAuthor(List<Article> in) {
-        return null;
+       List<Article> list = null;
+        list.add(in.stream()
+                .max(Comparator.comparing(Article::getAuthor))
+                .orElseThrow());
+        return articles = list;
     }
     public List<Article> NewYorkTimes (List<Article> in){
-return null;
+        articles = in.stream()
+                .filter(source->source.getSource().getName().equals("New York Times"))
+                .toList();
+        return articles;
     }
 
     public List<Article> lessthan15chars (List<Article> in){
-        articles= in.stream()
+        articles = in.stream()
                 .filter(title->title.getTitle().length()<15)
                 .toList();
         return articles;

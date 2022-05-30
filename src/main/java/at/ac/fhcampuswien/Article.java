@@ -28,6 +28,10 @@ public class Article {
 
     public String getTitle() { return this.title; }
 
+    public Source getSource() {
+        return source;
+    }
+
     @Override
     public String toString() { //automatically created
         return "\nArticle\n" +
@@ -49,4 +53,11 @@ class Source{
         this.name = name;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
