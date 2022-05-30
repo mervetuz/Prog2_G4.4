@@ -20,6 +20,8 @@ public class MenuController {
                     btn_SortDescription;
     @FXML
     private TextArea txt_Display;
+    @FXML
+    private ComboBox cbx_Language, cbx_Country;
 
 
     public void click_Headlines() {
