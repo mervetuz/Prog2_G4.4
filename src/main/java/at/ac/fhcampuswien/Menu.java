@@ -160,7 +160,7 @@ public class Menu {
         System.out.println("a --> Filter (Provider with the most Articles)");
         System.out.println("b --> Filter (Author with the longest Name)");
         System.out.println("c --> Filter (New York Times)");
-        System.out.println("d --> Filter (Description length");
+        System.out.println("d --> Filter (Description length)");
         System.out.println("e --> Filter (Less than 15 characters in Title)");
         System.out.println("q --> No Filter");
     }

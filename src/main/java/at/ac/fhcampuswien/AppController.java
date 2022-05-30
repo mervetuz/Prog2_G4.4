@@ -98,8 +98,8 @@ public class AppController {
 
     }
 
-    public String longestNameAuthor() {
-        if (!articles.isEmpty()) {
+    public String longestNameAuthor() { //delete every article with author = "null"
+        if (!articles.isEmpty()) {      //then return author with longest name
             return articles.stream()
                     .filter(article -> article.getAuthor() != null)
                     .max(Comparator.comparing(article -> article.getAuthor().length()))
@@ -108,26 +108,50 @@ public class AppController {
             return "No Articles in the List!";
         }
     }
-    public List<Article> NewYorkTimes (List<Article> in){
+    public List<Article> NewYorkTimes (List<Article> in) {
         articles = in.stream()
-                .filter(source->source.getSource().getName().equals("New York Times"))
+                .filter(source->source.getSource().getName().equals("New York Times")) //For Testing
                 .toList();
-        return articles;
+
+        try {
+
+        if (articles.isEmpty()) {
+            throw new  NewsAPIExceptions("\nNo Articles found!\n");
+
+        } else {
+            return  articles;
+        }
+        } catch (NewsAPIExceptions e) {
+            System.out.println(e.getMessage());
+        }
+       return articles;
+
     }
 
     public List<Article> lessthan15chars (List<Article> in){
         articles = in.stream()
                 .filter(title->title.getTitle().length()<15)
                 .toList();
+
+        try {
+            if (articles.isEmpty()) {
+                throw new NewsAPIExceptions("\nNo Articles found!\n");
+
+            } else {
+                return articles;
+            }
+        } catch (NewsAPIExceptions e) {
+            System.out.println(e.getMessage());
+        }
         return articles;
     }
     public  List<Article> sortByDescription(List<Article> in){
-        for (int i = 0; i < articles.size(); i++) {
-            if (articles.get(i).getDescription() == null) {
+        for (int i = 0; i < articles.size(); i++) { //Runs through all articles in list
+            if (articles.get(i).getDescription() == null) { //Articles who have no description -> ""
                 articles.get(i).setDescription("");
             }
         }
-        if (!articles.isEmpty()) {
+        if (!articles.isEmpty()) { //sorts length of description, if there are articles
             setArticles(articles.stream()
                     .sorted(Comparator.comparingInt((Article article) -> article.getDescription().length())
                             .thenComparing(Article::getDescription))
@@ -137,6 +161,7 @@ public class AppController {
         } else {
             return new ArrayList<>();
         }
+
     }
 
     /**
