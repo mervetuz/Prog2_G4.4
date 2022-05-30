@@ -1,11 +1,14 @@
 package at.ac.fhcampuswien;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -24,6 +27,7 @@ public class MenuController {
 
     @FXML
     private Button btn_Headlines;
+
 
     @FXML
     private TextArea txt_Display;
@@ -50,6 +54,45 @@ public class MenuController {
         public void write(int b) {
             appendText(String.valueOf((char)b));
         }
+    }
+    @FXML
+    private Button btn_Category, btn_Business, btn_Entertainment,btn_General,btn_Health,btn_Science,btn_Sports,btn_Technology;
+    private Parent root;
+    private Button btn;
+
+    public void click_Category() throws IOException {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/at.ac.fhcampuswien/Category.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("Category");
+        primaryStage.setResizable(false);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+        Stage thisStage = (Stage) btn_Category.getScene().getWindow();
+        thisStage.close();
+    }
+    public void click_Business() {
+        Stage thisStage = (Stage) btn_Business.getScene().getWindow();
+    }
+    public void click_Entertainment() {
+        Stage thisStage = (Stage) btn_Entertainment.getScene().getWindow();
+    }
+    public void click_General() {
+        Stage thisStage = (Stage) btn_General.getScene().getWindow();
+    }
+    public void click_Health() {
+        Stage thisStage = (Stage) btn_Health.getScene().getWindow();
+    }
+    public void click_Science() {
+        Stage thisStage = (Stage) btn_Science.getScene().getWindow();
+    }
+    public void click_Technology() {
+        Stage thisStage = (Stage) btn_Technology.getScene().getWindow();
+    }
+    public void click_Sports() {
+        Stage thisStage = (Stage) btn_Sports.getScene().getWindow();
     }
 
 
