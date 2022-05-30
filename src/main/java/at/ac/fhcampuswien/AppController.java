@@ -78,14 +78,13 @@ public class AppController {
         return articles; //= filterList("Bitcoin", articles);
     }
 
-
+    //Get provider with most articles
     public String mostArticles(){
         //in.stream()
           // return null;
 
         if (!articles.isEmpty()) {
             return articles.stream()
-                    //Quelle:https://stackoverflow.com/questions/22989806/find-the-most-common-string-in-arraylist User:ChandraBhan Singh
                     .collect(Collectors.groupingBy(article -> article.getSource().getName(), Collectors.counting()))
                     .entrySet()
                     .stream()
@@ -97,7 +96,7 @@ public class AppController {
         }
 
     }
-
+   //Get longest author name
     public String longestNameAuthor() { //delete every article with author = "null"
         if (!articles.isEmpty()) {      //then return author with longest name
             return articles.stream()
@@ -108,6 +107,8 @@ public class AppController {
             return "No Articles in the List!";
         }
     }
+
+    // Count articles from NY Times
     public List<Article> NewYorkTimes (List<Article> in) {
         articles = in.stream()
                 .filter(source->source.getSource().getName().equals("New York Times")) //For Testing
@@ -128,6 +129,7 @@ public class AppController {
 
     }
 
+   //Get articles with short title
     public List<Article> lessthan15chars (List<Article> in){
         articles = in.stream()
                 .filter(title->title.getTitle().length()<15)
@@ -145,6 +147,7 @@ public class AppController {
         }
         return articles;
     }
+   //Sort articles by content length
     public  List<Article> sortByDescription(List<Article> in){
         for (int i = 0; i < articles.size(); i++) { //Runs through all articles in list
             if (articles.get(i).getDescription() == null) { //Articles who have no description -> ""

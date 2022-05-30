@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 
 public class App  {
     public static void main(String[] args){
-        //launch(args);
-        Menu menu = new Menu();
-        menu.start();
+        launch(args);
+        //Menu menu = new Menu();
+        //menu.start();
 
     }
 
