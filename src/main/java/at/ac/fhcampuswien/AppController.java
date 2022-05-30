@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class AppController {
     private List<Article> articles;
@@ -69,26 +71,42 @@ public class AppController {
 
         try {
 
-            articles = response_bitcoin.gson(endpoints.EVERYTHING.value_endpoint + "&q=bitcoin").getArticles();
+            articles = response_bitcoin.gson(endpoints.EVERYTHING.value_endpoint + "&q=New York").getArticles();
 
         } catch (IOException e) {
         }
-        return articles = filterList("Bitcoin", articles);
+        return articles; //= filterList("Bitcoin", articles);
     }
 
 
-    public List<Article> mostArticles(List<Article> in){
+    public String mostArticles(){
         //in.stream()
-           return null;
+          // return null;
+
+        if (!articles.isEmpty()) {
+            return articles.stream()
+                    //Quelle:https://stackoverflow.com/questions/22989806/find-the-most-common-string-in-arraylist User:ChandraBhan Singh
+                    .collect(Collectors.groupingBy(article -> article.getSource().getName(), Collectors.counting()))
+                    .entrySet()
+                    .stream()
+                    .max(Map.Entry.comparingByValue())
+                    .get()
+                    .getKey();
+        } else {
+            return "No Articles in the List!";
+        }
 
     }
 
-    public List<Article> longestNameAuthor(List<Article> in) {
-       List<Article> list = null;
-        list.add(in.stream()
-                .max(Comparator.comparing(Article::getAuthor))
-                .orElseThrow());
-        return articles = list;
+    public String longestNameAuthor() {
+        if (!articles.isEmpty()) {
+            return articles.stream()
+                    .filter(article -> article.getAuthor() != null)
+                    .max(Comparator.comparing(article -> article.getAuthor().length()))
+                    .get().getAuthor();
+        } else {
+            return "No Articles in the List!";
+        }
     }
     public List<Article> NewYorkTimes (List<Article> in){
         articles = in.stream()
@@ -104,7 +122,21 @@ public class AppController {
         return articles;
     }
     public  List<Article> sortByDescription(List<Article> in){
-        return null;
+        for (int i = 0; i < articles.size(); i++) {
+            if (articles.get(i).getDescription() == null) {
+                articles.get(i).setDescription("");
+            }
+        }
+        if (!articles.isEmpty()) {
+            setArticles(articles.stream()
+                    .sorted(Comparator.comparingInt((Article article) -> article.getDescription().length())
+                            .thenComparing(Article::getDescription))
+                    .collect(Collectors.toList()));
+            return articles;
+
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     /**

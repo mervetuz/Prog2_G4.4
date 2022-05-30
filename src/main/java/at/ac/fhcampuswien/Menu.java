@@ -47,11 +47,11 @@ public class Menu {
 
     }
 
-    private List<Article> handleStream(String in, List<Article> list){
+    private Object handleStream(String in, List<Article> list){
         switch (in){
-            case "a" : return controller.mostArticles(list);
+            case "a" : return controller.mostArticles();
 
-            case "b" : return controller.longestNameAuthor(list);
+            case "b" : return controller.longestNameAuthor();
             case "c" : return controller.NewYorkTimes(list);
             case "e" : return controller.lessthan15chars(list);
             case "d" : return controller.sortByDescription(list);

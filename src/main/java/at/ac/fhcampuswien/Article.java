@@ -5,7 +5,7 @@ public class Article {
     private final Source source;
     private final String author;
     private final String title;
-    private final String description;
+    private String description;
     private final String url;
     private final String urlToImage;
     private final String publishedAt;
@@ -30,6 +30,13 @@ public class Article {
 
     public Source getSource() {
         return source;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
