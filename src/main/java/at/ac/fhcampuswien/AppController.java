@@ -82,27 +82,18 @@ public class AppController {
 
     }
 
-    public List<Article> longestNameAuthor(List<Article> in){
-       try {
-           String maxLength = in.stream()
-                   .max((aAuthor, bAuthor) -> aAuthor.getAuthor().length() - bAuthor.getAuthor().length())
-                   .toString();
-           return in.stream()
-                   .filter(x->x.getAuthor().equals(maxLength))
-                   .toList();
-       }catch (NullPointerException e)
-       {
-           System.out.println("welp");
-       }
-       return null;
+    public List<Article> longestNameAuthor(List<Article> in) {
+        return null;
     }
-
     public List<Article> NewYorkTimes (List<Article> in){
 return null;
     }
 
     public List<Article> lessthan15chars (List<Article> in){
-        return null;
+        articles= in.stream()
+                .filter(title->title.getTitle().length()<15)
+                .toList();
+        return articles;
     }
     public  List<Article> sortByDescription(List<Article> in){
         return null;

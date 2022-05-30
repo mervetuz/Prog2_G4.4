@@ -51,8 +51,8 @@ public class Menu {
 
             case "b" : return controller.longestNameAuthor(list);
             case "c" : return controller.NewYorkTimes(list);
-            case "d" : return controller.lessthan15chars(list);
-            case "e" : return controller.sortByDescription(list);
+            case "e" : return controller.lessthan15chars(list);
+            case "d" : return controller.sortByDescription(list);
             case "q" : return list;
             default : {printInvalidInputMessage();start();}
         }
