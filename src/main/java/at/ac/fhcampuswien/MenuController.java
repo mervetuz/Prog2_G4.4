@@ -33,8 +33,8 @@ public class MenuController {
         txt_Display.setText(ctrl.getAllNewsBitcoin().toString());
     }
 
-    public void click_NYTimes(){
-        txt_Display.setText(ctrl.NewYorkTimes());
+    public void click_NYTimes() throws NewsAPIExceptions{
+        //txt_Display.setText(String.valueOf(ctrl.NewYorkTimes()));
     }
 
     public void click_MostArticles(){
@@ -46,11 +46,11 @@ public class MenuController {
     }
 
     public void click_ShortTitle() {
-        txt_Display.setText(ctrl.lessthan15chars());
+        //txt_Display.setText(ctrl.lessthan15chars());
     }
 
     public void click_SortDescription() {
-        txt_Display.setText(ctrl.sortByDescription());
+        //txt_Display.setText(ctrl.sortByDescription());
     }
 
 
