@@ -2,7 +2,10 @@ package at.ac.fhcampuswien;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class AppController {
     private List<Article> articles;
@@ -21,11 +24,11 @@ public class AppController {
     }
     //Returns the number of items in the list. If the list is null, 0 should be returned
 
-    public int getArticleCount() {
+    public int getArticleCount() throws NewsAPIExceptions {
         if (articles.size() != 0) {
             return articles.size();
         } else {
-            return 0;
+            throw new NewsAPIExceptions("\nBitte wählen sie eine Kategorie aus, welche Artikel haben!\n");
         }
     }
 
@@ -68,11 +71,100 @@ public class AppController {
 
         try {
 
-            articles = response_bitcoin.gson(endpoints.EVERYTHING.value_endpoint + "&q=bitcoin").getArticles();
+            articles = response_bitcoin.gson(endpoints.EVERYTHING.value_endpoint + "&q=New York").getArticles();
 
         } catch (IOException e) {
         }
-        return articles = filterList("Bitcoin", articles);
+        return articles; //= filterList("Bitcoin", articles);
+    }
+
+    //Get provider with most articles
+    public String mostArticles(){
+        //in.stream()
+          // return null;
+
+        if (!articles.isEmpty()) {
+            return articles.stream()
+                    .collect(Collectors.groupingBy(article -> article.getSource().getName(), Collectors.counting()))
+                    .entrySet()
+                    .stream()
+                    .max(Map.Entry.comparingByValue())
+                    .get()
+                    .getKey();
+        } else {
+            return "No Articles in the List!";
+        }
+
+    }
+   //Get longest author name
+    public String longestNameAuthor() { //delete every article with author = "null"
+        if (!articles.isEmpty()) {      //then return author with longest name
+            return articles.stream()
+                    .filter(article -> article.getAuthor() != null)
+                    .max(Comparator.comparing(article -> article.getAuthor().length()))
+                    .get().getAuthor();
+        } else {
+            return "No Articles in the List!";
+        }
+    }
+
+    // Count articles from NY Times
+    public List<Article> NewYorkTimes (List<Article> in) {
+        articles = in.stream()
+                .filter(source->source.getSource().getName().equals("New York Times")) //For Testing
+                .toList();
+
+        try {
+
+        if (articles.isEmpty()) {
+            throw new  NewsAPIExceptions("\nNo Articles found!\n");
+
+        } else {
+            return  articles;
+        }
+        } catch (NewsAPIExceptions e) {
+            System.out.println(e.getMessage());
+        }
+       return articles;
+
+    }
+
+   //Get articles with short title
+    public List<Article> lessthan15chars (List<Article> in){
+        articles = in.stream()
+                .filter(title->title.getTitle().length()<15)
+                .toList();
+
+        try {
+            if (articles.isEmpty()) {
+                throw new NewsAPIExceptions("\nNo Articles found!\n");
+
+            } else {
+                return articles;
+            }
+        } catch (NewsAPIExceptions e) {
+            System.out.println(e.getMessage());
+        }
+        return articles;
+    }
+   //Sort articles by content length
+    public  List<Article> sortByDescription(List<Article> in){
+        for (int i = 0; i < articles.size(); i++) { //Runs through all articles in list
+            if (articles.get(i).getDescription() == null) { //Articles who have no description -> ""
+                articles.get(i).setDescription("");
+            }
+        }
+        if (!articles.isEmpty()) { //sorts length of description, if there are articles
+            setArticles(articles.stream()
+                    .sorted(Comparator.comparingInt((Article article) -> article.getDescription().length())
+                            .thenComparing(Article::getDescription))
+                    .collect(Collectors.toList()));
+            return articles;
+
+        } else {
+            return new ArrayList<>();
+        }
+
     }
 
     /**

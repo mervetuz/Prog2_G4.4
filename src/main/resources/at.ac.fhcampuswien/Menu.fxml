@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="693.0" prefWidth="1546.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.MenuController">
+<AnchorPane prefHeight="693.0" prefWidth="1546.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.MenuController">
    <children>
       <ImageView fitHeight="694.0" fitWidth="1722.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -28,5 +25,19 @@
             <Font name="Avenir Book" size="45.0" />
          </font>
       </Label>
+
+      <Button fx:id="btn_NYTimes" layoutX="450.0" layoutY="120.0" mnemonicParsing="false" onAction="#click_NYTimes" prefHeight="47.0" prefWidth="121.0" text="Count articles from NY Times" textAlignment="CENTER" wrapText="true" />
+
+      <Button fx:id="btn_LongestAuthorName" layoutX="450.0" layoutY="220.0" mnemonicParsing="false" onAction="#click_LongestAuthorName" prefHeight="47.0" prefWidth="121.0" text="Longest author name" textAlignment="CENTER" wrapText="true" />
+
+      <Button fx:id="btn_ShortTitle" layoutX="450.0" layoutY="320.0" mnemonicParsing="false" onAction="#click_ShortTitle" prefHeight="47.0" prefWidth="121.0" text="Articles with short title &lt; 15" textAlignment="CENTER" wrapText="true" />
+
+      <Button fx:id="btn_MostArticles" layoutX="450.0" layoutY="420.0" mnemonicParsing="false" onAction="#click_MostArticles" prefHeight="47.0" prefWidth="121.0" text="Provider with most articles" textAlignment="CENTER" wrapText="true" />
+
+      <Button fx:id="btn_SortDescription" layoutX="450.0" layoutY="520.0" mnemonicParsing="false" onAction="#click_SortDescription" prefHeight="47.0" prefWidth="121.0" text="Sort Description by length" textAlignment="CENTER" wrapText="true" />
+      <ComboBox fx:id="cbx_Language" layoutX="600.0" layoutY="60.0" prefWidth="150.0" promptText="Language" />
+      <ComboBox fx:id="cbx_Country" layoutX="800.0" layoutY="60.0" prefWidth="150.0" promptText="Country" />
+      
    </children>
+
 </AnchorPane>

@@ -1,5 +1,7 @@
 package at.ac.fhcampuswien;
 
+import java.net.UnknownHostException;
+import java.util.List;
 import java.util.Scanner;
 /***
  * the Menu class is for outputting the console menu and for the responsible for user input.
@@ -19,6 +21,7 @@ public class Menu {
 
            printMenu();
            handleInput(new Scanner(System.in).next());
+
 
        }
     }
@@ -43,12 +46,34 @@ public class Menu {
         }
 
     }
+
+    private Object handleStream(String in, List<Article> list){
+        switch (in){
+            case "a" : return controller.mostArticles();
+
+            case "b" : return controller.longestNameAuthor();
+            case "c" : return controller.NewYorkTimes(list);
+            case "e" : return controller.lessthan15chars(list);
+            case "d" : return controller.sortByDescription(list);
+            case "q" : return list;
+            default : {printInvalidInputMessage();start();}
+        }
+        return null;
+    }
+
     /***
      *  getArticleCount(): returns the number of articles in the list.
      * If the list is null, then 0 be returned
      */
     private void getArticleCount(AppController ctrl){
+
+    try {
+
         System.out.println(ctrl.getArticleCount());
+
+    } catch (NewsAPIExceptions e) {
+        System.out.println(e.getMessage());
+    }
     }
 
     /***
@@ -57,8 +82,23 @@ public class Menu {
      * @param ctrl
      */
     private void getTopHeadlinesAustria(AppController ctrl){
-        System.out.println(ctrl.getTopHeadlinesAustria());
+    //    printStreamSelector();
+    //    System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getTopHeadlinesAustria()));
 
+        try {
+
+            if (ctrl.getTopHeadlinesAustria().isEmpty()) {
+
+                throw new UnknownHostException();
+            } else {
+                //System.out.println(ctrl.getTopHeadlinesAustria());
+                printStreamSelector();
+                System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getTopHeadlinesAustria()));
+            }
+
+        } catch (UnknownHostException e) {
+            System.out.println("\nCheck your internet connectivity!\n");
+        }
     }
 
     /***
@@ -66,8 +106,21 @@ public class Menu {
      * @param ctrl
      */
     private void getAllNewsBitcoin(AppController ctrl){
-        System.out.println(ctrl.getAllNewsBitcoin());
+     //   printStreamSelector();
+     //   System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getAllNewsBitcoin()));
 
+        try {
+
+            if (ctrl.getAllNewsBitcoin().isEmpty()) {
+                throw new UnknownHostException();
+            } else {
+              //  System.out.println(ctrl.getAllNewsBitcoin());
+                printStreamSelector();
+                System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getAllNewsBitcoin()));
+            }
+        } catch (UnknownHostException exception) {
+            System.out.println("\nCheck your internet connectivity!\n");
+        }
     }
 
     /***
@@ -98,6 +151,18 @@ public class Menu {
 
 
 
+    }
+    private static void printStreamSelector(){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("        ***       Welcome to our NewsApp      ***             ");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("Enter what you wanna do by pressing the appropriate letter key:");
+        System.out.println("a --> Filter (Provider with the most Articles)");
+        System.out.println("b --> Filter (Author with the longest Name)");
+        System.out.println("c --> Filter (New York Times)");
+        System.out.println("d --> Filter (Description length)");
+        System.out.println("e --> Filter (Less than 15 characters in Title)");
+        System.out.println("q --> No Filter");
     }
 
 
