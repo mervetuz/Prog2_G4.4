@@ -21,9 +21,6 @@ public class MenuController {
     @FXML
     private TextArea txt_Display;
 
-    @FXML
-    private ComboBox cbx_category,
-                     cbx_country;
 
     public void click_Headlines() {
         txt_Display.setText(ctrl.getTopHeadlinesAustria().toString());
