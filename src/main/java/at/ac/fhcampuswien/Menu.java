@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien;
 
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Scanner;
 /***
@@ -64,7 +65,14 @@ public class Menu {
      * If the list is null, then 0 be returned
      */
     private void getArticleCount(AppController ctrl){
+
+    try {
+
         System.out.println(ctrl.getArticleCount());
+
+    } catch (NewsAPIExceptions e) {
+        System.out.println(e.getMessage());
+    }
     }
 
     /***
@@ -76,6 +84,18 @@ public class Menu {
         printStreamSelector();
         System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getTopHeadlinesAustria()));
 
+        try {
+
+            if (ctrl.getTopHeadlinesAustria().isEmpty()) {
+
+                throw new UnknownHostException();
+            } else {
+                System.out.println(ctrl.getTopHeadlinesAustria());
+            }
+
+        } catch (UnknownHostException e) {
+            System.out.println("\nCheck your internet connectivity!\n");
+        }
     }
 
     /***
@@ -86,6 +106,16 @@ public class Menu {
         printStreamSelector();
         System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getAllNewsBitcoin()));
 
+        try {
+
+            if (ctrl.getAllNewsBitcoin().isEmpty()) {
+                throw new UnknownHostException();
+            } else {
+                System.out.println(ctrl.getAllNewsBitcoin());
+            }
+        } catch (UnknownHostException exception) {
+            System.out.println("\nCheck your internet connectivity!\n");
+        }
     }
 
     /***

@@ -30,7 +30,7 @@ public class MenuController {
         txt_Display.setText(ctrl.getAllNewsBitcoin().toString());
     }
 
-    public void click_NumberOfArticles() {
+    public void click_NumberOfArticles() throws NewsAPIExceptions {
         txt_Display.setText(String.valueOf(ctrl.getArticleCount()));
     }
 

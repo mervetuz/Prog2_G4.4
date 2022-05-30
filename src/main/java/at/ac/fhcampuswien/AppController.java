@@ -22,11 +22,11 @@ public class AppController {
     }
     //Returns the number of items in the list. If the list is null, 0 should be returned
 
-    public int getArticleCount() {
+    public int getArticleCount() throws NewsAPIExceptions {
         if (articles.size() != 0) {
             return articles.size();
         } else {
-            return 0;
+            throw new NewsAPIExceptions("\nBitte wählen sie eine Kategorie aus, welche Artikel haben!\n");
         }
     }
 
