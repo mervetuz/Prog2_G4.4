@@ -82,8 +82,8 @@ public class Menu {
      * @param ctrl
      */
     private void getTopHeadlinesAustria(AppController ctrl){
-        printStreamSelector();
-        System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getTopHeadlinesAustria()));
+    //    printStreamSelector();
+    //    System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getTopHeadlinesAustria()));
 
         try {
 
@@ -91,7 +91,9 @@ public class Menu {
 
                 throw new UnknownHostException();
             } else {
-                System.out.println(ctrl.getTopHeadlinesAustria());
+                //System.out.println(ctrl.getTopHeadlinesAustria());
+                printStreamSelector();
+                System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getTopHeadlinesAustria()));
             }
 
         } catch (UnknownHostException e) {
@@ -104,15 +106,17 @@ public class Menu {
      * @param ctrl
      */
     private void getAllNewsBitcoin(AppController ctrl){
-        printStreamSelector();
-        System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getAllNewsBitcoin()));
+     //   printStreamSelector();
+     //   System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getAllNewsBitcoin()));
 
         try {
 
             if (ctrl.getAllNewsBitcoin().isEmpty()) {
                 throw new UnknownHostException();
             } else {
-                System.out.println(ctrl.getAllNewsBitcoin());
+              //  System.out.println(ctrl.getAllNewsBitcoin());
+                printStreamSelector();
+                System.out.println(handleStream(new Scanner(System.in).next(),ctrl.getAllNewsBitcoin()));
             }
         } catch (UnknownHostException exception) {
             System.out.println("\nCheck your internet connectivity!\n");
