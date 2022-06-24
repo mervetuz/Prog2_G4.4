@@ -1,5 +1,6 @@
-package at.ac.fhcampuswien;
+package at.ac.fhcampuswien.api;
 
+import at.ac.fhcampuswien.models.NewsResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;

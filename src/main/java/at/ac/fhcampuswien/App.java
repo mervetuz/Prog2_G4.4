@@ -1,6 +1,6 @@
 package at.ac.fhcampuswien;
 
-import javafx.application.Application;
+import at.ac.fhcampuswien.ui.Menu;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

@@ -1,4 +1,6 @@
-package at.ac.fhcampuswien;
+package at.ac.fhcampuswien.models;
+
+import at.ac.fhcampuswien.models.Article;
 
 import java.util.List;
 

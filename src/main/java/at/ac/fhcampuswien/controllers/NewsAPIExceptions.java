@@ -1,4 +1,4 @@
-package at.ac.fhcampuswien;
+package at.ac.fhcampuswien.controllers;
 
 public class NewsAPIExceptions extends Exception {
 

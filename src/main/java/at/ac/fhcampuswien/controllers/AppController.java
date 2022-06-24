@@ -1,4 +1,7 @@
-package at.ac.fhcampuswien;
+package at.ac.fhcampuswien.controllers;
+
+import at.ac.fhcampuswien.models.Article;
+import at.ac.fhcampuswien.api.NewsAPI;
 
 import java.io.IOException;
 import java.util.ArrayList;

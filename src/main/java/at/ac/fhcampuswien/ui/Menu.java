@@ -1,4 +1,8 @@
-package at.ac.fhcampuswien;
+package at.ac.fhcampuswien.ui;
+
+import at.ac.fhcampuswien.models.Article;
+import at.ac.fhcampuswien.controllers.AppController;
+import at.ac.fhcampuswien.controllers.NewsAPIExceptions;
 
 import java.net.UnknownHostException;
 import java.util.List;

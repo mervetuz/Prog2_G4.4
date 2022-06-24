@@ -1,5 +1,7 @@
-package at.ac.fhcampuswien;
+package at.ac.fhcampuswien.controllers;
 
+import at.ac.fhcampuswien.controllers.AppController;
+import at.ac.fhcampuswien.controllers.NewsAPIExceptions;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
