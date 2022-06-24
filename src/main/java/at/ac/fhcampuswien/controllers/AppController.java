@@ -1,8 +1,7 @@
 package at.ac.fhcampuswien.controllers;
 
 import at.ac.fhcampuswien.models.Article;
-import at.ac.fhcampuswien.api.NewsAPI;
-
+import at.ac.fhcampuswien.api.NewsApi;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
