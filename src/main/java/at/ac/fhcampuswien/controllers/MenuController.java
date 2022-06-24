@@ -1,7 +1,7 @@
 package at.ac.fhcampuswien.controllers;
 
 import at.ac.fhcampuswien.controllers.AppController;
-import at.ac.fhcampuswien.controllers.NewsAPIExceptions;
+import at.ac.fhcampuswien.controllers.NewsAPIException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -32,7 +32,7 @@ public class MenuController {
         txt_Display.setText(ctrl.getAllNewsBitcoin().toString());
     }
 
-    public void click_NumberOfArticles() throws NewsAPIExceptions {
+    public void click_NumberOfArticles() throws NewsAPIException {
         txt_Display.setText(String.valueOf(ctrl.getArticleCount()));
     }
 

@@ -2,7 +2,7 @@ package at.ac.fhcampuswien.ui;
 
 import at.ac.fhcampuswien.models.Article;
 import at.ac.fhcampuswien.controllers.AppController;
-import at.ac.fhcampuswien.controllers.NewsAPIExceptions;
+import at.ac.fhcampuswien.controllers.NewsAPIException;
 
 import java.net.UnknownHostException;
 import java.util.List;
@@ -75,7 +75,7 @@ public class Menu {
 
         System.out.println(ctrl.getArticleCount());
 
-    } catch (NewsAPIExceptions e) {
+    } catch (NewsAPIException e) {
         System.out.println(e.getMessage());
     }
     }

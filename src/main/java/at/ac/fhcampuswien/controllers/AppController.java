@@ -26,17 +26,17 @@ public class AppController {
     }
     //Returns the number of items in the list. If the list is null, 0 should be returned
 
-    public int getArticleCount() throws NewsAPIExceptions {
+    public int getArticleCount() throws NewsAPIException {
         if (articles.size() != 0) {
             return articles.size();
         } else {
-            throw new NewsAPIExceptions("\nBitte wählen sie eine Kategorie aus, welche Artikel haben!\n");
+            throw new NewsAPIException("\nBitte wählen sie eine Kategorie aus, welche Artikel haben!\n");
         }
     }
 
     //Should only return the list of Articles. If the list is null, an empty list should be returned
     public List<Article> getTopHeadlinesAustria() {
-        NewsAPI getTopHeadlines = new NewsAPI();
+        NewsApi getTopHeadlines = new NewsApi();
 
         try { //Need to handle gson because of the IOException in NewsAPI
             articles = getTopHeadlines.gson(endpoints.TOP_HEADLINES.value_endpoint + country.AUSTRIA.value_country).getArticles();
@@ -69,7 +69,7 @@ public class AppController {
 
     public List<Article> getAllNewsBitcoin() {
 
-        NewsAPI response_bitcoin = new NewsAPI();
+        NewsApi response_bitcoin = new NewsApi();
 
         try {
 
@@ -111,19 +111,19 @@ public class AppController {
         }
     }
     public List<Article> NewYorkTimes (List<Article> in) {
-        articles = in.stream()
-                .filter(source->source.getSource().getName().equals("New York Times")) //For Testing
-                .toList();
+       // articles = in.stream()
+                //.filter(source->source.getSource().getName().equals("New York Times")) //For Testing
+               // .toList();
 
         try {
 
         if (articles.isEmpty()) {
-            throw new  NewsAPIExceptions("\nNo Articles found!\n");
+            throw new  NewsAPIException("\nNo Articles found!\n");
 
         } else {
             return  articles;
         }
-        } catch (NewsAPIExceptions e) {
+        } catch (NewsAPIException e) {
             System.out.println(e.getMessage());
         }
        return articles;
@@ -137,12 +137,12 @@ public class AppController {
 
         try {
             if (articles.isEmpty()) {
-                throw new NewsAPIExceptions("\nNo Articles found!\n");
+                throw new NewsAPIException("\nNo Articles found!\n");
 
             } else {
                 return articles;
             }
-        } catch (NewsAPIExceptions e) {
+        } catch (NewsAPIException e) {
             System.out.println(e.getMessage());
         }
         return articles;
