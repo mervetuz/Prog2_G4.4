@@ -19,7 +19,7 @@ public class AppController {
      *
      * SINGLETON PATTERN
      *
-     *
+     * Menu.start singleton call & in MenuController
      * **/
 
     private List<Article> articles;
@@ -34,12 +34,12 @@ public class AppController {
     public static AppController getInstance() {
 
         if (instance == null) {
-            instance = new AppController();
+            instance = new AppController(); //Allows global access to all other classes
         }
         return instance;
     }
 
-
+/** END **/
 
   /*  public AppController() {
         articles = new ArrayList<Article>();
