@@ -4,8 +4,11 @@ import at.ac.fhcampuswien.App;
 import at.ac.fhcampuswien.downloader.Downloader;
 import at.ac.fhcampuswien.downloader.ParallelDownloader;
 import at.ac.fhcampuswien.downloader.SequentialDownloader;
+import at.ac.fhcampuswien.enums.Country;
+import at.ac.fhcampuswien.enums.Endpoint;
 import at.ac.fhcampuswien.models.Article;
 import at.ac.fhcampuswien.api.NewsApi;
+import at.ac.fhcampuswien.models.NewsResponse;
 
 import java.applet.AppletStub;
 import java.io.IOException;
@@ -13,7 +16,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AppController {
-
 
     /**
      *
@@ -25,26 +27,19 @@ public class AppController {
     private List<Article> articles;
 
     private static AppController instance = null;
-
-    //Empty Constructor
-    private AppController(){}
+    private AppController(){} //empty Constructor
 
     //public wy to get to private AppController instance (Singleton)
-
     public static AppController getInstance() {
 
         if (instance == null) {
-            instance = new AppController(); //Allows global access to all other classes
+            instance = new AppController();  //Allows global access to all other classes
         }
         return instance;
     }
 
-/** END **/
+    /** END **/
 
-  /*  public AppController() {
-        articles = new ArrayList<Article>();
-    }
-*/
     //Setter for the Articles list
     public void setArticles(List<Article> articles) {
         this.articles = articles;
@@ -65,16 +60,18 @@ public class AppController {
 
     //Should only return the list of Articles. If the list is null, an empty list should be returned
     public List<Article> getTopHeadlinesAustria() {
-        NewsApi getTopHeadlines = new NewsApi();
+
+        NewsApi api = new NewsApi("corona", Country.at, Endpoint.TOP_HEADLINES);
+        articles = new ArrayList<>();
 
         try { //Need to handle gson because of the IOException in NewsAPI
-            articles = getTopHeadlines.gson(endpoints.TOP_HEADLINES.value_endpoint + country.AUSTRIA.value_country).getArticles();
-        } catch (IOException e) {}
+            NewsResponse response = api.requestData();
+            articles = response.getArticles();
+        } catch (NewsAPIException e) {
+            System.out.println("An error occurred while fetching articles: " + e.getMessage());
+        }
 
-        if (articles == null) {
-            return new ArrayList<Article>();
-        } else
-            return articles;
+        return Objects.requireNonNullElseGet(articles, ArrayList::new);
     }
 
     /***
@@ -97,26 +94,22 @@ public class AppController {
     }
 
     public List<Article> getAllNewsBitcoin() {
-
-        NewsApi response_bitcoin = new NewsApi();
-
+        NewsApi api = new NewsApi("bitcoin", Endpoint.EVERYTHING);
+        articles = new ArrayList<>();
         try {
-
-            articles = response_bitcoin.gson(endpoints.EVERYTHING.value_endpoint + "&q=New York").getArticles();
-
-        } catch (IOException e) {
+            NewsResponse response = api.requestData();
+            articles = response.getArticles();
+        } catch (NewsAPIException e) {
+            System.out.println("An error occurred while fetching articles: " + e.getMessage());
         }
         return articles; //= filterList("Bitcoin", articles);
     }
 
-
-    public String mostArticles(){
-        //in.stream()
-          // return null;
-
+    //Quelle:https://stackoverflow.com/questions/22989806/find-the-most-common-string-in-arraylist User:ChandraBhan Singh
+    public String mostArticles() throws NewsAPIException{
         if (!articles.isEmpty()) {
+
             return articles.stream()
-                    //Quelle:https://stackoverflow.com/questions/22989806/find-the-most-common-string-in-arraylist User:ChandraBhan Singh
                     .collect(Collectors.groupingBy(article -> article.getSource().getName(), Collectors.counting()))
                     .entrySet()
                     .stream()
@@ -124,62 +117,48 @@ public class AppController {
                     .get()
                     .getKey();
         } else {
-            return "No Articles in the List!";
+            throw new NewsAPIException("No Articles in the list!");
         }
 
     }
 
-    public String longestNameAuthor() { //delete every article with author = "null"
+    public String longestNameAuthor() throws NewsAPIException {
         if (!articles.isEmpty()) {      //then return author with longest name
             return articles.stream()
                     .filter(article -> article.getAuthor() != null)
                     .max(Comparator.comparing(article -> article.getAuthor().length()))
                     .get().getAuthor();
         } else {
-            return "No Articles in the List!";
+            throw new NewsAPIException("No Articles in the list!");
         }
     }
-    public List<Article> NewYorkTimes (List<Article> in) {
-       // articles = in.stream()
-                //.filter(source->source.getSource().getName().equals("New York Times")) //For Testing
-               // .toList();
 
-        try {
 
-        if (articles.isEmpty()) {
-            throw new  NewsAPIException("\nNo Articles found!\n");
-
+    public long NewYorkTimes() throws NewsAPIException{
+        if(articles.isEmpty()) {
+            throw new NewsAPIException("Load data first");
         } else {
-            return  articles;
+            return articles.stream()
+                    .filter(e -> e.getSource().getName().equals("New York Times"))
+                    .count();
         }
-        } catch (NewsAPIException e) {
-            System.out.println(e.getMessage());
-        }
-       return articles;
-
     }
 
-    public List<Article> lessthan15chars (List<Article> in){
-        articles = in.stream()
-                .filter(title->title.getTitle().length()<15)
-                .toList();
 
-        try {
-            if (articles.isEmpty()) {
-                throw new NewsAPIException("\nNo Articles found!\n");
 
-            } else {
-                return articles;
-            }
-        } catch (NewsAPIException e) {
-            System.out.println(e.getMessage());
-        }
-        return articles;
+    public List<Article> lessthan15chars (int in) throws NewsAPIException{
+        if (articles.isEmpty()) {
+            throw new NewsAPIException("\nNo Articles found!\n");
+        } return articles.stream()
+                .filter(article -> article.getTitle().length() <= in)
+                .collect(Collectors.toList());
     }
-    public  List<Article> sortByDescription(List<Article> in){
-        for (int i = 0; i < articles.size(); i++) { //Runs through all articles in list
-            if (articles.get(i).getDescription() == null) { //Articles who have no description -> ""
-                articles.get(i).setDescription("");
+
+    public  List<Article> sortByDescription(){
+
+        for (Article value : articles) { //Runs through all articles in list
+            if (value.getDescription() == null) { //Articles who have no description -> ""
+                value.setDescription("");
             }
         }
         if (!articles.isEmpty()) { //sorts length of description, if there are articles
@@ -197,8 +176,8 @@ public class AppController {
 
     public int downloadURLs(Downloader downloader) throws NewsAPIException { //return number of downloaded article urls
     //Jeder Downloader kann übergeben werden
-        if (articles == null) {
-            throw new NewsAPIException();
+        if (articles.isEmpty()) {
+            throw new NewsAPIException("No Articles found!");
         }
 
         List<String> urls = articles.stream()
@@ -209,85 +188,10 @@ public class AppController {
         return downloader.process(urls);
     }
 
-    /**
-     * Usable for Endpoint Top-Headlines
-     */
-    enum category {
-
-        BUSINESS("&category=business"),
-        ENTERTAINMENT("&category=entertainment"),
-        GENERAL("&category=general"),
-        HEALTH("&category=general"),
-        SCIENCE("&category=science"),
-        SPORTS("&category=science"),
-        TECHNOLOGY("&category=science");
-
-        private final String value_category;
-
-        category(String value_category) {
-            this.value_category = value_category;
-        }
-
-    }
-
-    /**
-     * Usable for Endpoint Top-Headlines
-     */
-    enum country {
-        AUSTRIA("&country=at"),
-        GERMANY("&country=de"),
-        ENGLAND("&country=gb");
 
 
-        private final String value_country;
-
-        country(String value_country) {
-            this.value_country = value_country;
-        }
-
-
-    }
-
-    /**
-     * Usable for Endpoint Everything
-     */
-    enum language {
-        GERMAN("&language=de"),
-        ENGLISH("&language=en");
-
-        private final String value_language;
-
-        language(String value_language) {
-            this.value_language = value_language;
-        }
-
-    }
-
-    /**
-     * Usable for Endpoint Everything
-     */
-    enum sortby {
-        RELEVANCY ("&sortBy=relevancy"),
-        POPULARITY ("&sortBy=popularity"),
-        PUBLISHED_AT ("&sortBy=publishedAt");
-        private final String value_sortby;
-
-        sortby(String value_sortby) {
-            this.value_sortby = value_sortby;
-        }
-    }
-
-    enum endpoints {
-        EVERYTHING("https://newsapi.org/v2/everything?apiKey=1c3a1d04cc674ddaa897818225da2afe"),
-        TOP_HEADLINES("https://newsapi.org/v2/top-headlines?apiKey=1c3a1d04cc674ddaa897818225da2afe");
-        private final String value_endpoint;
-
-        endpoints(String value_endpoint) {
-            this.value_endpoint = value_endpoint;
-        }
-    }
-
-  /*  private static List<Article> generateMockList(){
+/*
+   private static List<Article> generateMockList(){
 
         List<Article> liste = new ArrayList<Article>();
         for (int i = 0; i < 10; i++) {
@@ -300,6 +204,5 @@ public class AppController {
         return liste;
     }
 */
-
 
 }

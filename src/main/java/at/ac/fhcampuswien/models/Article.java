@@ -64,6 +64,8 @@ public class Article {
         return source;
     }
 
+    public String getUrl() { return this.url; }
+
     public String getDescription() {
         return description;
     }
@@ -83,8 +85,5 @@ public class Article {
                 "Content: " + content + "\n" ;
     }
 
-    public String getUrl() {
 
-        return this.url;
-    }
 }
