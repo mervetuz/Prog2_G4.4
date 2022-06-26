@@ -7,7 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 public class MenuController {
-    AppController ctrl = new AppController();
+    /** Singleton Call **/
+    AppController ctrl = AppController.getInstance();
 
     @FXML
     private Button btn_ArticlesNr;

@@ -9,12 +9,14 @@ import javafx.stage.Stage;
 public class App  {
     public static void main(String[] args){
         //launch(args);
-        Menu menu = new Menu();
+        Menu menu = Menu.getInstance();
         menu.start();
 
     }
+}
 
 
+/*
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/at.ac.fhcampuswien/Menu.fxml"));
         Parent root = loader.load();
@@ -25,5 +27,4 @@ public class App  {
         primaryStage.show();
 
     }
-
-}
+*/
