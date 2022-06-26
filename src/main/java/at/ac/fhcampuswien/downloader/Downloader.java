@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-// Class is needed for exercise 4 - ignore for exercise 3 solution
+
 public abstract class Downloader {
 
     public static final String HTML_EXTENSION = ".html";
