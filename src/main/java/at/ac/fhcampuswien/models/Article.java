@@ -50,4 +50,9 @@ public class Article {
                 "Published at: " + publishedAt + "\n" +
                 "Content: " + content + "\n" ;
     }
+
+    public String getUrl() {
+
+        return this.url;
+    }
 }

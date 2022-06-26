@@ -1,12 +1,12 @@
 package at.ac.fhcampuswien.controllers;
 
+import at.ac.fhcampuswien.downloader.Downloader;
+import at.ac.fhcampuswien.downloader.ParallelDownloader;
+import at.ac.fhcampuswien.downloader.SequentialDownloader;
 import at.ac.fhcampuswien.models.Article;
 import at.ac.fhcampuswien.api.NewsApi;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AppController {
@@ -164,6 +164,20 @@ public class AppController {
             return new ArrayList<>();
         }
 
+    }
+
+    public int downloadURLs(Downloader downloader) throws NewsAPIException { //return number of downloaded article urls
+
+        if (articles == null) {
+            throw new NewsAPIException();
+        }
+
+        List<String> urls = articles.stream()
+                .map(Article::getUrl)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        return downloader.process(urls);
     }
 
     /**

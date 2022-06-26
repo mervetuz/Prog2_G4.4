@@ -1,5 +1,7 @@
 package at.ac.fhcampuswien.ui;
 
+import at.ac.fhcampuswien.downloader.ParallelDownloader;
+import at.ac.fhcampuswien.downloader.SequentialDownloader;
 import at.ac.fhcampuswien.models.Article;
 import at.ac.fhcampuswien.controllers.AppController;
 import at.ac.fhcampuswien.controllers.NewsAPIException;
@@ -18,6 +20,25 @@ public class Menu {
     private AppController controller = new AppController();
     private static final String INVALID_INPUT_MESSAGE = "Not a valid Input! Try again";
     private static final String EXIT_MESSAGE = "Bye, see you soon!";
+
+
+    private void downloadURLs() {
+
+        try {
+            long start = System.currentTimeMillis();
+            int resultSequential = controller.downloadURLs(new SequentialDownloader());
+            long end = System.currentTimeMillis();
+            System.out.println(resultSequential + " files downloaded in " + (end - start) + "in ms");
+
+            start = System.currentTimeMillis();
+            int resultParallel = controller.downloadURLs(new ParallelDownloader());
+            end = System.currentTimeMillis();
+            System.out.println(resultParallel + " files downloaded in " + (end - start) + "in ms");
+
+        } catch (NewsAPIException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
     public void start() {
