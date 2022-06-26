@@ -196,7 +196,7 @@ public class AppController {
     }
 
     public int downloadURLs(Downloader downloader) throws NewsAPIException { //return number of downloaded article urls
-
+    //Jeder Downloader kann übergeben werden
         if (articles == null) {
             throw new NewsAPIException();
         }
