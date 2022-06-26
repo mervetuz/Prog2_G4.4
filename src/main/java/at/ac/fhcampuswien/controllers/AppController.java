@@ -136,7 +136,7 @@ public class AppController {
 
 
     public long NewYorkTimes() throws NewsAPIException{
-        if(articles.isEmpty()) {
+        if(articles == null) {
             throw new NewsAPIException("Load data first");
         } else {
             return articles.stream()
@@ -147,7 +147,7 @@ public class AppController {
 
 
     public List<Article> lessthan15chars (int in) throws NewsAPIException{
-        if (articles.isEmpty()) {
+        if (articles == null) {
             throw new NewsAPIException("\nNo Articles found!\n");
         } return articles.stream()
                 .filter(article -> article.getTitle().length() <= in)
@@ -175,9 +175,10 @@ public class AppController {
 
     }
 
+
     public int downloadURLs(Downloader downloader) throws NewsAPIException { //return number of downloaded article urls
     //Jeder Downloader kann übergeben werden
-        if (articles.isEmpty()) {
+        if (articles == null) {
             throw new NewsAPIException("No Articles found!");
         }
 

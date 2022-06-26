@@ -1,5 +1,5 @@
 ## Welcome to NewsApp 
 
 ### Headlines Austrian 
-### News about Bitcoin
+### Made by: Aleksandra Trninic, Alexander Tomic, Merve Tuz, Marcus Wieger
 
