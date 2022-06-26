@@ -29,12 +29,12 @@ public class Article {
 
         private final String author; //Fixed
         private final String title; //Fixed
-        public String description;
-        public String url;
-        public String urlToImage;
-        public String publishedAt;
-        public String content;
-        public Source source;
+        private String description;
+        private String url;
+        private String urlToImage;
+        private String publishedAt;
+        private String content;
+        private Source source;
 
 
         public Builder(String author, String title) { //Non-Optional, "musts"
@@ -46,6 +46,31 @@ public class Article {
 
         public Builder description(String description) {
             this.description = description;
+            return this;
+        }
+
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+        public Builder urlToImage(String urlToImage) {
+            this.urlToImage = urlToImage;
+            return this;
+        }
+
+        public Builder publishedAt(String publishedAt) {
+            this.publishedAt = publishedAt;
+            return this;
+        }
+
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+        public Builder source(Source source) {
+            this.source = source;
             return this;
         }
 

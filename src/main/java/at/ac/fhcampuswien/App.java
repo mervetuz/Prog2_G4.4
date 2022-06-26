@@ -1,5 +1,7 @@
 package at.ac.fhcampuswien;
 
+import at.ac.fhcampuswien.models.Article;
+import at.ac.fhcampuswien.models.Source;
 import at.ac.fhcampuswien.ui.Menu;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +13,16 @@ public class App  {
         //launch(args);
         Menu menu = new Menu();
         menu.start();
+
+        /*
+Article article = new Article.Builder("Alex", "Kingg")
+        .description("Ich bin die Beschreibung")
+        .publishedAt("2020-12-12")
+        .url("www.alex.com")
+        .build();
+
+        System.out.println(article.toString());
+        */
 
     }
 

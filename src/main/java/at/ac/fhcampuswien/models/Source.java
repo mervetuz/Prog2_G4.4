@@ -4,7 +4,7 @@ public class Source {
     private final String id;
     private final String name;
 
-    Source(String id, String name) {
+    public Source(String id, String name) {
         this.id = id;
         this.name = name;
     }
