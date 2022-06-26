@@ -1,21 +1,50 @@
 package at.ac.fhcampuswien.controllers;
 
+import at.ac.fhcampuswien.App;
 import at.ac.fhcampuswien.downloader.Downloader;
 import at.ac.fhcampuswien.downloader.ParallelDownloader;
 import at.ac.fhcampuswien.downloader.SequentialDownloader;
 import at.ac.fhcampuswien.models.Article;
 import at.ac.fhcampuswien.api.NewsApi;
+
+import java.applet.AppletStub;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class AppController {
+
+
+    /**
+     *
+     * SINGLETON PATTERN
+     *
+     *
+     * **/
+
     private List<Article> articles;
 
-    public AppController() {
-        articles = new ArrayList<Article>();
+    private static AppController instance = null;
+
+    //Empty Constructor
+    private AppController(){}
+
+    //public wy to get to private AppController instance (Singleton)
+
+    public static AppController getInstance() {
+
+        if (instance == null) {
+            instance = new AppController();
+        }
+        return instance;
     }
 
+
+
+  /*  public AppController() {
+        articles = new ArrayList<Article>();
+    }
+*/
     //Setter for the Articles list
     public void setArticles(List<Article> articles) {
         this.articles = articles;

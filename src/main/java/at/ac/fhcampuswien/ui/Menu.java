@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 
 public class Menu {
-    private AppController controller = new AppController();
+    private AppController controller;
     private static final String INVALID_INPUT_MESSAGE = "Not a valid Input! Try again";
     private static final String EXIT_MESSAGE = "Bye, see you soon!";
 
@@ -42,6 +42,9 @@ public class Menu {
 
 
     public void start() {
+        /** SINGLETON CALL **/
+        controller = AppController.getInstance();
+
        while (true) {
 
            printMenu();
