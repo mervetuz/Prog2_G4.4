@@ -12,6 +12,17 @@ import java.util.concurrent.*;
  * */
 public class ParallelDownloader extends Downloader {
 
+    /**************************** SINGLETON ***************************/
+    private static ParallelDownloader instance = null;
+
+    private ParallelDownloader() {}
+    public static ParallelDownloader getInstance() {
+        if (instance == null) {
+            instance = new ParallelDownloader();
+        } return instance;
+    }
+
+
     // returns number of downloaded article urls
     @Override
     public int process(List<String> urls) throws NewsAPIException {

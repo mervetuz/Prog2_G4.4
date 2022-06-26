@@ -29,6 +29,7 @@ public class Article {
 
         private final String author; //Fixed
         private final String title; //Fixed
+
         public String description;
         public String url;
         public String urlToImage;
@@ -36,16 +37,40 @@ public class Article {
         public String content;
         public Source source;
 
-
-        public Builder(String author, String title) { //Non-Optional, "musts"
+        //Mandatory
+        public Builder(String author, String title) {
             this.author = author;
             this.title = title;
         }
 
         //Optional parameters
-
-        public Builder description(String description) {
+        public Builder description (String description) {
             this.description = description;
+            return this;
+        }
+
+        public Builder url (String url) {
+            this.url = url;
+            return this;
+        }
+
+        public Builder urlToImage (String urlToImage) {
+            this.urlToImage = urlToImage;
+            return this;
+        }
+
+        public Builder publishedAt (String publishedAt) {
+            this.publishedAt = publishedAt;
+            return this;
+        }
+
+        public Builder content (String content) {
+            this.content = content;
+            return this;
+        }
+
+        public Builder source (Source source) {
+            this.source = source;
             return this;
         }
 
@@ -53,7 +78,6 @@ public class Article {
             return new Article(this);
         }
     }
-
 
 
     public String getAuthor() { return this.author; }
@@ -66,14 +90,28 @@ public class Article {
 
     public String getUrl() { return this.url; }
 
+    public String getUrlToImage() {
+        return urlToImage;
+    }
+
+    public String getPublishedAt() {
+        return publishedAt;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    @Override
+
+     @Override
     public String toString() { //automatically created
         return "\nArticle\n" +
                 "Author: " + author + "\n" +

@@ -15,14 +15,11 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
+/**************************** SINGLETON ***************************/
 public class AppController {
 
-    /**
-     *
-     * SINGLETON PATTERN
-     *
-     * Menu.start singleton call & in MenuController
-     * **/
+    /** Menu.start singleton call & in MenuController **/
 
     private List<Article> articles;
 
@@ -38,7 +35,6 @@ public class AppController {
         return instance;
     }
 
-    /** END **/
 
     //Setter for the Articles list
     public void setArticles(List<Article> articles) {
@@ -61,7 +57,13 @@ public class AppController {
     //Should only return the list of Articles. If the list is null, an empty list should be returned
     public List<Article> getTopHeadlinesAustria() {
 
-        NewsApi api = new NewsApi("corona", Country.at, Endpoint.TOP_HEADLINES);
+        NewsApi api = new NewsApi.Builder()
+                .q("corona")
+                .sourceCountry(Country.at)
+                .endpoint(Endpoint.TOP_HEADLINES)
+                .build();
+
+
         articles = new ArrayList<>();
 
         try { //Need to handle gson because of the IOException in NewsAPI
@@ -74,14 +76,7 @@ public class AppController {
         return Objects.requireNonNullElseGet(articles, ArrayList::new);
     }
 
-    /***
-     * the function returned a search string (query) and a list.
-     * A list of articles in which the query in the title is returned.
-     * Upper and lower case should not be considered.
-     * @param query
-     * @param articles
-     * @return
-     */
+
     protected static List<Article> filterList(String query, List<Article> articles) {
 
         List<Article> newList = new ArrayList<Article>();
@@ -94,7 +89,13 @@ public class AppController {
     }
 
     public List<Article> getAllNewsBitcoin() {
-        NewsApi api = new NewsApi("bitcoin", Endpoint.EVERYTHING);
+       // NewsApi api = new NewsApi("bitcoin", Endpoint.EVERYTHING);
+
+        NewsApi api = new NewsApi.Builder()
+                .q("bitcoin")
+                .endpoint(Endpoint.EVERYTHING)
+                .build();
+
         articles = new ArrayList<>();
         try {
             NewsResponse response = api.requestData();
@@ -105,7 +106,7 @@ public class AppController {
         return articles; //= filterList("Bitcoin", articles);
     }
 
-    //Quelle:https://stackoverflow.com/questions/22989806/find-the-most-common-string-in-arraylist User:ChandraBhan Singh
+
     public String mostArticles() throws NewsAPIException{
         if (!articles.isEmpty()) {
 
@@ -145,7 +146,6 @@ public class AppController {
     }
 
 
-
     public List<Article> lessthan15chars (int in) throws NewsAPIException{
         if (articles.isEmpty()) {
             throw new NewsAPIException("\nNo Articles found!\n");
@@ -153,6 +153,7 @@ public class AppController {
                 .filter(article -> article.getTitle().length() <= in)
                 .collect(Collectors.toList());
     }
+
 
     public  List<Article> sortByDescription(){
 

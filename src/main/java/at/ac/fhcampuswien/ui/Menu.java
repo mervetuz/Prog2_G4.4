@@ -10,12 +10,7 @@ import at.ac.fhcampuswien.models.NewsResponse;
 import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Scanner;
-/***
- * the Menu class is for outputting the console menu and for the responsible for user input.
- * If the user input has been validated, AppController is called.
- * The class has a member variable of AppController.
- * two static variables for invalid user input and the closing text
- */
+
 
 public class Menu {
     private static Menu instance = null;
@@ -36,8 +31,8 @@ public class Menu {
         /** SINGLETON CALL **/
         controller = AppController.getInstance();
 
-        while (true) {
 
+        while (true) {
             printMenu();
             handleInput(new Scanner(System.in).next());
         }
@@ -47,15 +42,22 @@ public class Menu {
     private void downloadURLs() {
 
         try {
+            SequentialDownloader sdow = SequentialDownloader.getInstance();
+            ParallelDownloader pdow = ParallelDownloader.getInstance();
+
             long start = System.currentTimeMillis();
-            int resultSequential = controller.downloadURLs(new SequentialDownloader());
+            int resultSequential = controller.downloadURLs(sdow);
             long end = System.currentTimeMillis();
-            System.out.println(resultSequential + " files downloaded in " + (end - start) + "in ms");
+            System.out.println("Download successful!" + "\n" +
+                    "Sequential downloaded " + resultSequential + " files in " + (end - start) + "ms!");
+
 
             start = System.currentTimeMillis();
-            int resultParallel = controller.downloadURLs(new ParallelDownloader());
+            int resultParallel = controller.downloadURLs(pdow);
             end = System.currentTimeMillis();
-            System.out.println(resultParallel + " files downloaded in " + (end - start) + "in ms");
+            System.out.println("Download successful!" + "\n" +
+                    "Parallel downloaded " + resultParallel + " files in " + (end - start) + "ms!");
+
 
         } catch (NewsAPIException e) {
             System.out.println(e.getMessage());

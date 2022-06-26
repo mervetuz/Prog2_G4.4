@@ -4,8 +4,18 @@ import at.ac.fhcampuswien.controllers.NewsAPIException;
 
 import java.util.List;
 
-// Class is needed for exercise 4 - ignore for exercise 3 solution
 public class SequentialDownloader extends Downloader {
+
+    /**************************** SINGLETON ***************************/
+    private static SequentialDownloader instance = null;
+
+    private SequentialDownloader() {}
+    public static SequentialDownloader getInstance() {
+        if (instance == null) {
+            instance = new SequentialDownloader();
+        } return instance;
+    }
+
 
     // returns number of downloaded article urls
     @Override
