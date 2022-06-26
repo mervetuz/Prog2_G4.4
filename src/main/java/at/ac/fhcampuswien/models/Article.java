@@ -11,18 +11,50 @@ public class Article {
     private final String publishedAt;
     private final String content;
 
+    /** BUILDER PATTERN **/
 
-    public Article(String author, String title, String description, String url, String urlToImage, String publishedAt, String content, Source source){
-        this.author = author;
-        this.title = title;
-        this.description = description;
-        this.url = url;
-        this.urlToImage = urlToImage;
-        this.publishedAt = publishedAt;
-        this.content = content;
-        this.source = source;
+    private Article(Builder builder){
+        this.author = builder.author;
+        this.title = builder.title;
+        this.description = builder.description;
+        this.url = builder.url;
+        this.urlToImage = builder.urlToImage;
+        this.publishedAt = builder.publishedAt;
+        this.content = builder.content;
+        this.source = builder.source;
 
     }
+
+    public static class Builder {
+
+        private final String author; //Fixed
+        private final String title; //Fixed
+        public String description;
+        public String url;
+        public String urlToImage;
+        public String publishedAt;
+        public String content;
+        public Source source;
+
+
+        public Builder(String author, String title) { //Non-Optional, "musts"
+            this.author = author;
+            this.title = title;
+        }
+
+        //Optional parameters
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Article build() {
+            return new Article(this);
+        }
+    }
+
+
 
     public String getAuthor() { return this.author; }
 
